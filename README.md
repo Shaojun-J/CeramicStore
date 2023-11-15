@@ -21,6 +21,12 @@ For this deliverable, you have the following tasks **(5%)**:
 
 You could use tools like [Moqups](https://moqups.com/) or [Figma](https://www.figma.com/) for making the mock-up design and wiring.
 
+Deliverable 0 -> Monday, December 4, 2023, end of the day
+
+Deliverable 0 Presentation -> Tuesday, December 5, 2023, during class time
+
+
+
 ### Deliverable 1
 
 For this deliverable, you have the following tasks based on your course outline **(15%)**:
@@ -32,6 +38,13 @@ For this deliverable, you have the following tasks based on your course outline 
 • Using an issue-tracking software - 3%
 
 Also, include a document explaining task distribution between team members.
+
+
+Deliverable 1 -> Monday, January 8, 2024, end of the day
+
+Deliverable 1 Presentation -> Tuesday, January 9, 2024, during class time
+
+
 
 ### Deliverable 2
 
@@ -50,5 +63,10 @@ Final report: **(5%)**
 • Individual’s role and responsibilities
 
 Also, include a document explaining task distribution between team members.
+
+
+Deliverable 2 -> Monday, January 29, 2024, end of the day
+
+Deliverable 2 Presentation -> Thursday, February 1, 2024, during class time
 
 You can include everything except the "node_modules" folder so it fits within the limits for uploading.
