@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const productRoutes = require('./routes/decorProducts');
+const userRoutes = require('./routes/userRoute');
 
 
 const app = express();
@@ -16,7 +16,7 @@ app.use((req,res,next) =>{
 
 
 //routes
-app.use('/decoproducts',productRoutes);
+app.use('/account',userRoutes);
 
 app.get('/', (req,res)=>{
    res.json({message: 'welcome to my shop'});
