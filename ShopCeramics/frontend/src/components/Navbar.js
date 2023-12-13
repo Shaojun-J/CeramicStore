@@ -30,8 +30,17 @@ const Navbar =() =>{
                     <div className='closeButton' onClick={handleSideBar}>
                         <IoIosClose />
                     </div>
+                    {isMenuExtend && 
+                    <>
+                        <div><Link to="/" style={{fontSize:'18px',fontFamily:'var( --font-head)', display:'inline-block', marginBottom:'50px'}}>CERAMIX</Link></div>
+                        <div><Link to="/">ABOUT US</Link></div>
+                        <div><Link to="/signup">CONTACT US</Link></div>
+                    </>
+                    }
+
                     <div><Link to="/">ABOUT US</Link></div>
                     <div><Link to="/signup">CONTACT US</Link></div>
+                  
                 </nav>
                 <Link to="/"><h2 className="logo">CERAMIX</h2></Link>
                 <nav className='navUser'>
