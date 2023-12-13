@@ -63,7 +63,7 @@ export default function Home () {
            </div>
 
            <div className="product-category" >
-            <Link to="/homeecor" className="subCategory">
+            <Link to="/homedecor" className="subCategory">
                <div className='categoryIcon'>
                   <img src={HomeDecor} alt="" style={{width:'50px'}} />
                   <h4 style={{fontFamily: `var(--font-base)`, fontWeight:'normal', color:'#c40202'}}>HOME DÉCOR </h4>

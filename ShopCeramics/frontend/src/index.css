@@ -95,7 +95,8 @@ nav a {
 }
 
 .mobileMenu-toggle,
-.closeButton{
+.closeButton,
+.sideBar{
   display: none;
 }
 
@@ -153,6 +154,22 @@ nav a {
   cursor: pointer;
 }
 
+.sideBar{
+  width: 50%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+ 
+}
+.sideBar-link {
+  display: flex;
+  justify-content: start;
+  align-content: center;
+  color: var(--white-color);
+}
+
+
 }
 
 
@@ -179,6 +196,9 @@ nav a {
 
   body.no-scroll {
     overflow: auto;
+  }
+  .subCategory:nth-child(2){
+    margin: 30px;
   }
 
   .white-backdrop{
