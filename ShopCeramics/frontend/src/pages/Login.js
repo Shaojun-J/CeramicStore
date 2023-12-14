@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 
 import {useLogin} from '../hooks/useLogin';
 
-import login from '../assets/login.png';
 import google from '../assets/google.png';
 
 const Login = () => {
