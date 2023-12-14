@@ -2,7 +2,6 @@ import React from 'react'
 import {Link} from 'react-router-dom';
 
 import { LuBookOpenCheck } from "react-icons/lu";
-import { GrContact } from "react-icons/gr";
 import { RiHome3Line } from "react-icons/ri";
 import { SlCup } from "react-icons/sl";
 import { TbBowl } from "react-icons/tb";

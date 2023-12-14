@@ -1,4 +1,6 @@
 import {useState} from 'react';
+import {Link} from 'react-router-dom';
+
 import { useSignup } from '../hooks/useSignup';
 
 const Signup = () => {
@@ -13,34 +15,52 @@ const Signup = () => {
    }
 
    return (
-    <form className='signup' onSubmit={handleSubmit}>
-      <h3>Sign up</h3>
-      <label > Username:</label>
-      <input 
-        type="text" 
-        onChange={(e)=>{setUsername(e.target.value)}}
-        value={username}
-      />
+    <div className="signup-page">
+     <div className="form-background">
+      <div className="page-title">
+          <Link to="/"><h2 className='page-title-logo'>CERAMIX</h2></Link>
+          <h4 className='page-subtitle'>Welcome to our fine ceramics</h4>
+        </div>
+     
 
-      <label > Email:</label>
-      <input 
-        type="email" 
-        onChange={(e)=>{setEmail(e.target.value)}}
-        value={email}
-      />
+        <form className='login-form' onSubmit={handleSubmit}>
 
-      <label > Password:</label>
-      <input 
-        type="password" 
-        onChange={(e)=>{setPassword(e.target.value)}}
-        value={password}
-      />
+          <label > Username</label>
+          <input 
+          type="text" 
+          onChange={(e)=>{setUsername(e.target.value)}}
+          value={username}
+          />
 
-      <button disabled={isLoading}>Sign up</button>
-      {error && <div className='error'>{error}</div>}
+         <label > Email</label>
+          <input 
+          type="email" 
+          onChange={(e)=>{setEmail(e.target.value)}}
+          value={email}
+          />
 
-    </form>
+          <label>Password</label>
+          <input 
+            type="password" 
+            onChange={(e)=>{setPassword(e.target.value)}}
+            value={password}
+          />
+        
+          <br />
 
+          <button  className="btn" disabled={isLoading}>Sign in</button>
+          
+          {error && <div className='error'>{error}</div>}
+
+        </form>
+        <div className='login-footer'>
+          <div>Have an account? <Link to="/login"> <span style={{marginLeft:'10px', color:'var(--light-blue)'}}>Sign in</span></Link></div>
+        </div>
+       
+     </div>
+      
+    </div>
+   
    )
 }
 
