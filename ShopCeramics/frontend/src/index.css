@@ -95,7 +95,8 @@ nav a {
 }
 
 .mobileMenu-toggle,
-.closeButton{
+.closeButton,
+.sideBar{
   display: none;
 }
 
@@ -133,15 +134,17 @@ nav a {
   height: 100%;
   z-index: 2;
   position: absolute;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:start;
+  padding: 20px;
 
 }
 
 .navPages.menu-extend a{
   color: var(--white-color);
 }
+
 .closeButton{
   position: absolute;
   top: 8px;
@@ -150,6 +153,22 @@ nav a {
   color: var(--white-color);
   cursor: pointer;
 }
+
+.sideBar{
+  width: 50%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+ 
+}
+.sideBar-link {
+  display: flex;
+  justify-content: start;
+  align-content: center;
+  color: var(--white-color);
+}
+
 
 }
 
@@ -177,6 +196,9 @@ nav a {
 
   body.no-scroll {
     overflow: auto;
+  }
+  .subCategory:nth-child(2){
+    margin: 30px;
   }
 
   .white-backdrop{

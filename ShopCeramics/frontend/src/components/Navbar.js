@@ -2,6 +2,8 @@ import {Link} from 'react-router-dom';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { useState} from 'react';
 
+import SideBar from './SideBar';
+
 
 import {FaBars} from 'react-icons/fa';
 import { IoIosClose } from "react-icons/io";
@@ -30,8 +32,17 @@ const Navbar =() =>{
                     <div className='closeButton' onClick={handleSideBar}>
                         <IoIosClose />
                     </div>
-                    <div><Link to="/">ABOUT US</Link></div>
-                    <div><Link to="/signup">CONTACT US</Link></div>
+                    {isMenuExtend && 
+                      <SideBar/>
+                    }
+                    {!isMenuExtend && 
+                      <>
+                        <div><Link to="/">ABOUT US</Link></div>
+                        <div><Link to="/signup">CONTACT US</Link></div>
+                      </>
+                    }
+                   
+                  
                 </nav>
                 <Link to="/"><h2 className="logo">CERAMIX</h2></Link>
                 <nav className='navUser'>
