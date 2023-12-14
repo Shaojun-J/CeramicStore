@@ -14,7 +14,7 @@ function SideBar() {
     <>
         <div><Link to="/" style={{fontSize:'18px',fontFamily:'var( --font-head)', display:'inline-block', marginBottom:'50px'}}>CERAMIX</Link></div>
         <div className="sideBar">
-            <div className='sideBar-link'><GrContact /><Link to="/">ABOUT US</Link></div>
+            <div className='sideBar-link'><LuBookOpenCheck /><Link to="/">ABOUT US</Link></div>
             <div className='sideBar-link'><RiHome3Line /><Link to="/homedecor">HOME DÉCOR</Link></div>
             <div className='sideBar-link'><SlCup /><Link to="/drinkset">DRINK SET</Link></div>
             <div className='sideBar-link'><TbBowl /><Link to="/tableware">TABLEWARE </Link></div>
