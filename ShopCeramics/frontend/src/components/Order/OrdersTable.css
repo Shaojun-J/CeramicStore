@@ -1,0 +1,10 @@
+.orders-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+   
+    width: 60%;
+    margin: 20px auto;
+    font-family: var(--font-base);
+}

@@ -21,7 +21,7 @@
     margin: 0;
     width: 100%;
     height: 304px;
-    background: var( ----dark-blue);
+    background: var(--dark-blue);
     display: flex;
     flex-direction: column;
     

@@ -396,11 +396,18 @@ input{
 
 
 /***   MyAccount Page  ***/
+
+
 .page-container{
-  width: 80%;
-  margin: 20px auto;
+ 
+  background: var(--white-color);
   
 
+  .page-content{
+    width: 80%;
+    height:600px;
+    margin: 20px auto;
+  }
   h2{
     font-family: var(--font-base);
     font-weight: 500;
