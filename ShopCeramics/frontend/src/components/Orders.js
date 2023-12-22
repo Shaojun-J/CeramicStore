@@ -6,8 +6,7 @@ export default function Account() {
     <header>
      <div className="container">
         <nav>
-            <div><Link to="/login">Login</Link></div>
-            <div><Link to="/signup">Signup</Link></div>
+            Order List
         </nav>
         </div>
     </header>

@@ -277,7 +277,7 @@ nav a {
 }
 }
 
-/***   Login Page  ***/
+/***   Login/Signup Page  ***/
 .login-page{
   position: relative;
   width: 100%;
@@ -395,3 +395,19 @@ input{
 }
 
 
+/***   MyAccount Page  ***/
+.page-container{
+  width: 80%;
+  margin: 20px auto;
+  
+
+  h2{
+    font-family: var(--font-base);
+    font-weight: 500;
+  }
+  .page-subtitle{
+    margin: 10px 0;
+    text-indent: 12%;
+
+  }
+}
