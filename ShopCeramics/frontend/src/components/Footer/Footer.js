@@ -2,14 +2,17 @@ import React from 'react';
 
 import './Footer.css';
 
+//NEED ADD handleSubmit function to post the email address to database subscribeEmail collection
+
 const Footer = () => {
   return (
     <div className='footer'>
       <div className="newsletter">
+      
          <h3>SIGN UP FOR OUR NEWSLETTER</h3>
             <form className='newsletter-form'>
                 <input type="email" />
-                <button className='btn'> SUBSCRIBE</button>
+                <button className='btn'> SUBSCRIBE</button> 
             </form>
       </div>
      <div className="footer-bottom">
@@ -38,7 +41,7 @@ const Footer = () => {
         
         </div>
 
-        <div className="rights"><h5>CERAMIX 2023. All Rights Reserved.</h5></div>
+        <div className="rights"><p>CERAMIX 2023. All Rights Reserved.</p></div>
      </div>
      
 

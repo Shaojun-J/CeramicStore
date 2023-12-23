@@ -2,6 +2,7 @@ import React, {useState, useMemo} from 'react'
 
 
 import './OrdersTable.css';
+import { IoMdArrowDropdown } from "react-icons/io";
 
 
 
@@ -38,10 +39,10 @@ const OrdersTable = ({data}) => {
         <table>
             <thead>
                 <tr>
-                    <th onClick={() => requestSort('orderDate')}>Order Date</th>
+                    <th onClick={() => requestSort('orderDate')}>Order Date<span><IoMdArrowDropdown /></span></th>
                     <th onClick={() => requestSort('orderNumber')}>Order Number</th>
-                    <th onClick={() => requestSort('totalPrice')}>Total Price</th>
-                    <th onClick={() => requestSort('totalItems')}>Total Items</th>
+                    <th onClick={() => requestSort('totalPrice')}>Total Price<span><IoMdArrowDropdown /></span></th>
+                    <th onClick={() => requestSort('totalItems')}>Items<span><IoMdArrowDropdown /></span></th>
                     <th onClick={() => requestSort('status')}>Order Status</th>
                 </tr>
             </thead>
