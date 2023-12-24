@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useRef} from "react";
 import Reviews from "../components/Reviews";
 import data from "../data/reviewsData.json";
 import ProductData from "../data/productsData.json";
@@ -7,31 +7,33 @@ import Promo from "../components/Promo";
 import Navbar from "../components/Navbar";
 import RecommandCard from "../components/RecommandCard";
 import ImageSlider from "../components/ImageSlieder";
-import {useParams} from "react-router-dom";
-
-
+import { useParams } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 const ProductDetail = () => {
+  const { id } = useParams();
+  const boxRef = useRef(null);
 
-    const { id } =useParams();
-    console.log({id});
-    const pdt = ProductData.products.find((proudct)=> proudct.id === id
-    );
-    let card = [];
-    for (let i = 0; i < ProductData.products.length; i++) {
-      const productInfo = ProductData.products[i];
-      card.push(
-        <RecommandCard
-          key={productInfo.id}
-          id={productInfo.id}
-          imgURL={productInfo.imageURL[1]}
-          name={`${productInfo.name[1].toUpperCase()}${productInfo.name.slice(1)}`}
-          price={productInfo.price}
-          rate={productInfo.rate}
-          numberOfViews={productInfo.number_of_reviews}
-        />
-      );
-    }
+  const pdt = ProductData.products.find((proudct) => proudct.id === id);
 
+  if (!pdt) {
+
+    return <p>Product not found</p>;
+  }
+
+  const card = ProductData.products
+    .filter((productInfo) => productInfo.id !== pdt.id)
+    .map((productInfo) => (
+      <RecommandCard
+        key={productInfo.id}
+        id={productInfo.id}
+        imgURL={productInfo.imageURL[1]}
+        name={`${productInfo.name[0].toUpperCase()}${productInfo.name.slice(1)}`}
+        price={productInfo.price}
+        rate={productInfo.rate}
+        numberOfViews={productInfo.number_of_reviews}
+      />
+    ));
   const reviews = data.reviews.map((item) => (
     <Reviews
       key={item.id}
@@ -42,7 +44,7 @@ const ProductDetail = () => {
       rate={item.rate}
     />
   ));
-  const product= (
+  const product = (
     <ProductInfo
       key={pdt.id}
       name={pdt.name}
@@ -55,40 +57,57 @@ const ProductDetail = () => {
     />
   );
 
-const imgSlider = (
-    <ImageSlider
-    imgURLs={pdt.imageURL}
-    />
-)
-
+  const imgSlider = <ImageSlider imgURLs={pdt.imageURL} />;
   
+
+
+  const handleLeftArrowClick = () => {
+    const width = boxRef.current.clientWidth;
+    if (boxRef.current) {
+      boxRef.current.scrollLeft -= width;
+      console.log(width);
+ 
+    }
+  };
+
+  const handleRightArrowClick = () => {
+    const width = boxRef.current.clientWidth;
+    if (boxRef.current) {
+      boxRef.current.scrollLeft += width;
+      console.log(width);
+    }
+  };
 
   return (
     <div className="about-page">
-    <Promo />
-    <Navbar />
-        <div className="proudctDetail-body ">
-        <div className="products-detail-container">
-        <div className="products-images">
-            {imgSlider}
-        </div>
-        <div className="productInfo">{product}</div>
-      </div>
-      <div className="margin-top-bottom products-detail-container">
-        <h1 className="review-section-title ">CUSTOMER REVIEWS</h1>
-        <div>{reviews}</div>
-      </div>
-      <div className="recommand-card-section">
-      <p className="recommand-section-title "> You may also like</p>
-      <div className="image-slider">
-        <button value="left"></button>
-      <div className="card-container recommand-card-section">
-        {card}
-        </div>
-        </div>
+      <Promo />
+      <Navbar />
 
+      <div className="proudctDetail-body ">
+        <div className="products-detail-container">
+          <div className="products-images">{imgSlider}</div>
+          <div className="productInfo">{product}</div>
         </div>
+        <div className="margin-top-bottom products-detail-container">
+          <h1 className="review-section-title ">CUSTOMER REVIEWS</h1>
+          <div>{reviews}</div>
         </div>
+        <div className="recommand-card-section">
+          <p className="recommand-section-title "> You may also like</p>
+          <div className="image-slider">
+            <FontAwesomeIcon className="arrow arrow-left"
+              icon={faAngleLeft}
+              onClick={handleLeftArrowClick}
+            />
+            <div className="card-container recommand-card-section"  ref={boxRef}
+            >{card}</div>
+            <FontAwesomeIcon className="arrow arrow-right"
+              icon={faAngleRight}
+              onClick={handleRightArrowClick}
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

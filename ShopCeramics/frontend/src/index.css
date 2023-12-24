@@ -1,6 +1,7 @@
 /*goole font*/
   @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&family=Philosopher:wght@400;700&display=swap');
 
+  
 
 /*layout*/
 :root{
@@ -637,7 +638,7 @@ color: var(--dark-blue);
 }
 .imgbox {
   width: 562px;
-  max-height: 700px;
+  max-height:500px;
   align-items: center;
   border-radius: 10px;
   overflow: hidden;
@@ -677,13 +678,15 @@ color: var(--dark-blue);
   max-width:500px;
 }
 .recommand-card{
-  max-width: 300px;
-  
+  width: 300px;
+  /* margin-left: 10px; */
 }
+
 .recommand-card-image{
   width: 300px;
   height: 250px;
 }
+
 .recommand-card-body{
   font-size: var(--font-size-16);
 }
@@ -741,6 +744,7 @@ color: var(--dark-blue);
   flex-wrap: nowrap;
   overflow: hidden;
   margin-top: var(--mb-20);
+  scroll-behavior: smooth;
 }
 .image-slider,.products-images,.products-detail-container{
   display: flex;
@@ -749,6 +753,7 @@ color: var(--dark-blue);
   margin-right: auto;
   justify-content: center; 
   align-items: center;
+  position: relative;
 }
 .thumbnail-container{
   display: flex;
@@ -833,4 +838,59 @@ color: var(--dark-blue);
 }
 .title-reviews{
   margin-left: 30px;
+}
+
+@media screen and (max-width: 900px) {
+  .recommand-card,.recommand-card-image {
+    width: 200px;
+  }
+  .recommand-card {
+    height: 220px;
+  }
+
+  .recommand-card-image{
+    height: 60%;
+   
+  }
+  .porduct-images{
+    height: 100%;
+    object-fit: contain;
+  }
+  .recommand-card-body h3,.recommand-card-body,.review-number,.rate{
+    font-size: var(--font-size-14);
+  }
+  .star,.halfStar{
+    height: 15px;
+    width: 15px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .recommand-card,.recommand-card-image{
+    max-width: 150px;
+    
+  }
+  .stars,.halfStar{
+    height: 10px;
+    width: 10px;
+  }
+}
+.arrow{
+  background-color: #ffffff;
+  height: 25px;
+  width: 25px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow:  0 3px 6px rgba(0,0,0,0.2);
+  padding: 5px;
+}
+.arrow-left{
+  left:5px;
+}
+
+.arrow-right{
+  right:5px;
 }
