@@ -99,7 +99,7 @@ const ProductDetail = () => {
               icon={faAngleLeft}
               onClick={handleLeftArrowClick}
             />
-            <div className="card-container recommand-card-section"  ref={boxRef}
+            <div className="card-container image-silder"  ref={boxRef}
             >{card}</div>
             <FontAwesomeIcon className="arrow arrow-right"
               icon={faAngleRight}
