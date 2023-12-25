@@ -50,14 +50,14 @@ const Navbar =() =>{
                    {user && (
                     <>
                     <div><Link to="/myaccount" className='btn'>{(user.username || user.email.substring(0, user.email.indexOf('@'))).toUpperCase()}</Link></div>
-                    <div><Link to="/signup">YOUR CART</Link></div>
+                    <div><Link to="/mycart">YOUR CART</Link></div>
                     </>
                    )}
 
                    {!user && (
                     <>
                     <div><Link to="/myaccount">MY ACCOUNT</Link></div>
-                    <div><Link to="/signup">YOUR CART</Link></div>
+                    <div><Link to="/mycart">MY CART</Link></div>
                     </>
                    )}
                    
