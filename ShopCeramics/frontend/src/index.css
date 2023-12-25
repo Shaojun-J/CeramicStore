@@ -578,6 +578,37 @@ input{
   font-size: var(--font-size-18);
 }
 
+
+/****************************************************************************************/
+/* Terms and Conditions */
+/****************************************************************************************/
+.terms-page{
+  background-color: white;
+  color: var(--dark-blue);
+  }
+  .terms-page p{
+    font-size: var(--font-size-14);
+    text-size-adjust: 0.5px;
+    margin-bottom: var(--mb-20);
+  }
+
+.terms-container {
+  width: 80%;
+  height: 100%;  
+  margin: 42px auto;
+  justify-content:left;
+}
+
+.terms-notice{
+  text-align: left;
+  margin-bottom: var(--mb-20);
+  text-size-adjust: 0.5px;
+  font-size: var(--font-size-16);
+  font-family: var(--font-head);
+  font-weight:700;
+}
+
+
 /* about */
 .about-page{
 background-color: white;

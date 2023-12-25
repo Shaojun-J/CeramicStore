@@ -32,7 +32,9 @@ const Footer = () => {
                     <div className="link-items-title"><h4>COMPANY</h4></div>
                     <div className="link-items">
                         <ul>
-                            <li>Terms & Conditions</li>
+                            <li>                            
+                            <a href="/termsconditions"> Terms & Conditions</a>
+                            </li>
                             <li>Privacy Policy</li>
                             <li>Accessibility Statement</li>
                         </ul>
