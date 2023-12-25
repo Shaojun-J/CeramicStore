@@ -1,7 +1,7 @@
 import React from "react";
 import data from "../data/aboutData.json";
 import AboutCard from "../components/AboutCard";
-import Promo from "../components/Promo";
+import Promo from "../components/Promo/Promo";
 import Navbar from "../components/Navbar";
 import Footer from '../components/Footer/Footer'
 

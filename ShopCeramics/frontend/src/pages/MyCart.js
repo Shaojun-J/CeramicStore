@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {useNavigate} from 'react-router-dom';
 import { useAuthContext } from '../hooks/useAuthContext';
 import Navbar from '../components/Navbar';
-import Promo from '../components/Promo';
+import Promo from '../components/Promo/Promo';
 import Footer from '../components/Footer/Footer';
 
 import verticalLine from '../assets/line.svg';
