@@ -1,5 +1,5 @@
 import React from "react";
-import Promo from "../components/Promo";
+import Promo from "../components/Promo/Promo";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer/Footer";
 
