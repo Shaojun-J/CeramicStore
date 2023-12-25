@@ -38,7 +38,7 @@ const Navbar =() =>{
                     }
                     {!isMenuExtend && 
                       <>
-                        <div><Link to="/">ABOUT US</Link></div>
+                        <div><Link to="/about">ABOUT US</Link></div>
                         <div><Link to="/signup">CONTACT US</Link></div>
                       </>
                     }
