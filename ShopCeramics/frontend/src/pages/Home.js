@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import {Link} from 'react-router-dom';
 
 import Navbar from '../components/Navbar'
-import Promo from '../components/Promo';
+import Promo from '../components/Promo/Promo';
 
 import HomeDecor from '../assets/homeDecor.png';
 import RedVasse from '../assets/RedVasse.png';

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import Promo from "../components/Promo";
+import Promo from "../components/Promo/Promo";
 import Navbar from "../components/Navbar";
 
 const NotFoundPage = () => {
