@@ -1,18 +1,15 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-
 import Home from './pages/Home'
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-<<<<<<< HEAD
 import About from './pages/About';
 import ProductCategory from './pages/ProductCategory';
 import ProductDetails from './pages/ProductDetails';
 import NotFoundPage from './pages/NotFoundPage';
-=======
 import MyAccount from './pages/MyAccount';
 import MyCart from './pages/MyCart';
->>>>>>> 73c4a0e897eb375773ae582467805bd890aa9179
+
 
 function App() {
   return (
