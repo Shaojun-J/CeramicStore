@@ -7,7 +7,7 @@ const Signup = () => {
    const [username, setUsername] = useState('');
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
-   const {signup, isLoading, error} = useSignup();
+   const {signup, isLoading, error, success} = useSignup();
 
    const handleSubmit = async (e) =>{
     e.preventDefault();
@@ -20,6 +20,7 @@ const Signup = () => {
       <div className="page-title">
           <Link to="/"><h2 className='page-title-logo'>CERAMIX</h2></Link>
           <h4 className='page-subtitle'>Welcome to our fine ceramics</h4>
+          <h4 className='page-subtitle' style={{color:'#e7395a'}}>{success}</h4>
         </div>
      
 
@@ -48,7 +49,7 @@ const Signup = () => {
         
           <br />
 
-          <button  className="btn" disabled={isLoading}>Sign in</button>
+          <button  className="btn" disabled={isLoading}>Sign up</button>
           
           {error && <div className='error'>{error}</div>}
 

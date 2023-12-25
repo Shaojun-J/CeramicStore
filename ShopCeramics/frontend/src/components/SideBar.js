@@ -18,6 +18,7 @@ function SideBar() {
             <div className='sideBar-link'><SlCup /><Link to="/drinkset">DRINK SET</Link></div>
             <div className='sideBar-link'><TbBowl /><Link to="/tableware">TABLEWARE </Link></div>
             <div className='sideBar-link'><FaRocketchat /><Link to="/signup">CONTACT US</Link></div>
+           
         </div>
 
         <div className='sideBar-link' style={{width:'100%', marginTop:'50px'}}><IoIosLogOut /><Link to="/">LOGOUT</Link></div>
