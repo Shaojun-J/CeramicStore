@@ -22,7 +22,9 @@ const Footer = () => {
                     <div className="link-items">
                         <ul>
                             <li>Instructions</li>
-                            <li>FAQ</li>
+                            <li>
+                            <a href="/faq"> FAQ </a>
+                            </li>
                             <li>Support</li>
                         </ul>
                     </div>
