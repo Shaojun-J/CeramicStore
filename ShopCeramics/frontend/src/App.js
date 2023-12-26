@@ -9,7 +9,8 @@ import ProductDetails from './pages/ProductDetails';
 import NotFoundPage from './pages/NotFoundPage';
 import MyAccount from './pages/MyAccount';
 import MyCart from './pages/MyCart';
-
+import TermsConditions from './pages/TermsConditions';
+import Faq from './pages/Faq';
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
         <Route path="/myaccount" element={<MyAccount/>} />
         <Route path="/mycart" element={<MyCart/>} />
 
+        <Route path="/termsconditions" element={<TermsConditions/>} />
+        <Route path="/faq" element={<Faq/>} />
       </Routes>
      </BrowserRouter>
     </>

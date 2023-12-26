@@ -3,7 +3,7 @@ import Reviews from "../components/Reviews";
 import data from "../data/reviewsData.json";
 import ProductData from "../data/productsData.json";
 import ProductInfo from "../components/ProductInfo";
-import Promo from "../components/Promo";
+import Promo from "../components/Promo/Promo";
 import Navbar from "../components/Navbar";
 import RecommandCard from "../components/RecommandCard";
 import ImageSlider from "../components/ImageSlieder";
