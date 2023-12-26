@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import About from './pages/About';
 import ProductCategory from './pages/ProductCategory';
 import ProductDetails from './pages/ProductDetails';
+import DrinkSetMain from './pages/DrinkSetMain';
 import NotFoundPage from './pages/NotFoundPage';
 import MyAccount from './pages/MyAccount';
 import MyCart from './pages/MyCart';
@@ -13,6 +14,7 @@ import TermsConditions from './pages/TermsConditions';
 import Faq from './pages/Faq';
 import ContactUs from './pages/ContactUs';
 import OrderConfirmation from './pages/OrderConfirmation'; 
+import DrinkSetDetails from './pages/DrinkSetDetails';
 
 function App() {
   return (
@@ -27,6 +29,9 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/ProductDetails/:id" element={<ProductDetails />} />
         <Route path="/*" element={<NotFoundPage />} />
+
+        <Route path="/drinkset" element={<DrinkSetMain/>}/>
+        <Route path="/DrinkSetDetails/:id" element={<DrinkSetDetails />} />
 
         <Route path="/myaccount" element={<MyAccount/>} />
         <Route path="/mycart" element={<MyCart/>} />

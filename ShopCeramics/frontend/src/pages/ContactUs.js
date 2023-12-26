@@ -4,7 +4,7 @@ import React from "react";
 import Promo from "../components/Promo/Promo";
 import Navbar from "../components/Navbar";
 import Footer from '../components/Footer/Footer'
-import { Link } from 'react-router-dom';
+
 
 import { AiFillPhone } from "react-icons/ai";
 // import { BsFillTelephoneFill } from "react-icons/bs";
