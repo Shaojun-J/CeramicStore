@@ -12,6 +12,7 @@ import MyCart from './pages/MyCart';
 import TermsConditions from './pages/TermsConditions';
 import Faq from './pages/Faq';
 import ContactUs from './pages/ContactUs';
+import OrderConfirmation from './pages/OrderConfirmation'; 
 
 function App() {
   return (
@@ -33,6 +34,8 @@ function App() {
         <Route path="/termsconditions" element={<TermsConditions/>} />
         <Route path="/faq" element={<Faq/>} />
         <Route path="/contact" element={<ContactUs/>} />
+        <Route path="/orderconfirmation" element={<OrderConfirmation/>} />
+        
       </Routes>
      </BrowserRouter>
     </>
