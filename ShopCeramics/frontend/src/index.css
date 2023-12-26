@@ -1152,6 +1152,10 @@ color: var(--dark-blue);
     height: 15px;
     width: 15px;
   }
+  .porduct-images{
+    height: 240px;
+    object-fit: contain;
+  }
 }
 @media screen and (max-width: 768px) {
   .recommand-card,.recommand-card-image{
@@ -1161,6 +1165,17 @@ color: var(--dark-blue);
   .stars,.halfStar{
     height: 10px;
     width: 10px;
+  }
+ 
+}
+@media screen and (max-width: 480px) {
+  .card-image{
+    overflow: hidden;
+
+  }
+  .porduct-images{
+    height: 240px;
+    object-fit: contain;
   }
 }
 .arrow{
