@@ -1152,10 +1152,12 @@ color: var(--dark-blue);
     height: 15px;
     width: 15px;
   }
-  .porduct-images{
-    height: 240px;
-    object-fit: contain;
+  .tableware-images{
+      height: 240px;
+      object-fit: contain;
+  
   }
+
 }
 @media screen and (max-width: 768px) {
   .recommand-card,.recommand-card-image{
@@ -1173,10 +1175,7 @@ color: var(--dark-blue);
     overflow: hidden;
 
   }
-  .porduct-images{
-    height: 240px;
-    object-fit: contain;
-  }
+
 }
 .arrow{
   background-color: #ffffff;
