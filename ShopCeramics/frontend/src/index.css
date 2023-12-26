@@ -489,8 +489,7 @@ input{
 }
 .product-main{
   width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 .product-title{
   color:var(--dark-blue);
@@ -511,10 +510,15 @@ input{
 }
 .card{
   max-width: 385px;
-  max-width: 480px;
   background-color:  var( --white-color);
   margin: var(--mb-20);
   flex:30%;
+}
+@media (max-width:768px){ 
+  .card-container{
+    margin: 20px auto;
+
+  }
 }
 
 .card-image{
@@ -723,8 +727,7 @@ color: var(--dark-blue);
 /* product details */
 .proudctDetail-body {
   width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
  
 }
 .products-detail-container{
@@ -809,6 +812,8 @@ color: var(--dark-blue);
 
 }
 .image-silder{
+  /* width: 350px;
+  max-width:610px ; */
   padding-left: 240px;
 }
 
@@ -868,8 +873,90 @@ color: var(--dark-blue);
   left:50%;
   transform: translate(-50%,-50%);
   width: 100%;
-  max-height: 500px;
+  /* max-height: 500px; */
   object-fit: contain;
+}
+
+@media (max-width: 768px){
+
+  .proudctDetail-body {
+    width: 90%;
+    margin: 0 auto;
+   
+  }
+
+
+  .products-container {
+    margin: 0 auto;
+  }
+
+  .image-slider,.products-images,.products-detail-container{
+    margin: 0 auto;
+    width:370px;
+    display: flex;
+   
+    position: relative;
+  }
+
+ .products-images.image-silder{
+    width: 370px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+
+  .recommand-card-section.image-silder{
+    flex-direction: row;
+  }
+  .main-image{
+    margin: 0 auto;
+    padding: 0;
+    height: 300px;
+
+  }
+  .main-image img{
+    position: relative;
+    margin: 0 auto;
+    width: 300px;
+    top:0;
+    left:0;
+    transform: translate(-150px,0);
+  }
+
+  .products-images{
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .thumbnail-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-left: 0;
+    left:160px;
+    transform: translateY(100px);
+   
+    .img-box{
+      width: 60px;
+      object-fit: none;
+    }
+  }
+
+  .about-page p{
+    font-size:0.9rem;
+  }
+  .reviews-container{
+    width: 350px;
+    margin: 5px auto;
+
+    p{
+      font-size: 0.8rem;
+    }
+  }
 }
 .notfoundpage{
   background-image: url('../public/images/background.png');
