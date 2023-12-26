@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import ProductCard from "../components/ProductCard"
 import { Link } from "react-router-dom";
 import products   from '../data/productsData.json'
+import Footer from '../components/Footer/Footer'
 
 const ProductCategory = () => {
   let card = products.products.map((productInfo)=>(
@@ -46,7 +47,7 @@ const ProductCategory = () => {
         {card}
         </div>
       </div>
-
+      <Footer />
 
     </>
   );

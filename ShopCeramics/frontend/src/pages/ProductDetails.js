@@ -10,6 +10,8 @@ import ImageSlider from "../components/ImageSlieder";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import Footer from '../components/Footer/Footer'
+
 const ProductDetail = () => {
   const { id } = useParams();
   const boxRef = useRef(null);
@@ -108,6 +110,7 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
