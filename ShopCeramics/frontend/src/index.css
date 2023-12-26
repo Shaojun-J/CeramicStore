@@ -497,6 +497,7 @@ input{
   font-weight: 400;
   padding-top: 40px;
 }
+
 /*Product card*/
 .card-container{
   display: flex;
@@ -581,7 +582,7 @@ color: var(--dark-blue);
 }
 .about-page p{
   font-size: var(--font-size-20);
-  text-size-adjust: 0.5px;
+  letter-spacing: 0.5px;
 }
 .about-container {
   position: relative;
@@ -590,10 +591,22 @@ color: var(--dark-blue);
   height: 100%;
   flex-direction: row;
   flex-wrap: wrap;
-  /* align-items: center; */
   margin: 42px auto;
   justify-content: center;
 
+}
+@media (max-width: 768px){
+  .about-container{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+  @media (max-width: 480px){
+    .about-container{
+      width: 100%;
+    height: 100%;
+    }
 }
 .about-intro{
   padding-left: 22.5%;
@@ -605,7 +618,7 @@ color: var(--dark-blue);
 .about-intro-title{
   text-align: center;
   margin-bottom: var(--mb-20);
-  text-size-adjust: 0.5px;
+  letter-spacing: 0.5px;
   font-size: var(--font-size-36);
   font-weight: 700;
 }
@@ -620,7 +633,6 @@ color: var(--dark-blue);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  /* align-items: center; */
   justify-content: center;
 }
 .about-card {
@@ -658,6 +670,55 @@ color: var(--dark-blue);
   box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
 
+@media (max-width: 768px){
+  .about-card {
+    width: 400px;
+    max-height: 700px;
+  }
+  .about-card-body p {
+    font-size: 16px;
+  }
+  .about-card-body h3{
+    font-size: 20px;
+  }
+  .imgbox,.about-image{
+    width: 100%;
+  }
+  .about-intro-title{
+    margin-bottom: var(--mb-15);
+    letter-spacing: 0.5px;
+    font-size: var(--font-size-28);
+    font-weight: 700;
+  }
+  .about-intro-body{
+    font-size: var(--font-size-16);
+  }
+}
+
+  @media (max-width: 480px){
+    .about-card {
+      width: 320px;
+      max-height: 700px;
+    }
+    .about-card-body p {
+      font-size: 14px;
+    }
+    .about-card-body h3{
+      font-size: 18px;
+    }
+    .imgbox,.about-image{
+      width: 100%;
+    }
+    .about-intro-title{
+      margin-bottom: var(--mb-10);
+      letter-spacing: 0.5px;
+      font-size: 24px;
+      font-weight: 700;
+    }
+    .about-intro-body{
+      font-size: 14px;
+    }
+}
 
 /* product details */
 .proudctDetail-body {
@@ -869,7 +930,7 @@ color: var(--dark-blue);
     width: 15px;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .recommand-card,.recommand-card-image{
     max-width: 150px;
     
@@ -1092,3 +1153,4 @@ color: var(--dark-blue);
   
 }
 }
+
