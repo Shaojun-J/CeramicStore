@@ -10,13 +10,14 @@ import { IoIosLogOut } from "react-icons/io";
 
 import {useLogout} from '../hooks/useLogout';
 
-function SideBar() {
+function SideBar({onClose}) {
 
   const{logout} = useLogout();
   const handleLogout = () =>{
     logout();
+    onClose();
    }
-
+console.log("typeOfonClose"+typeof onClose);
   return (
     <>
         <div><Link to="/" style={{fontSize:'18px',fontFamily:'var( --font-head)', display:'inline-block', marginBottom:'50px'}}>CERAMIX</Link></div>
@@ -29,7 +30,7 @@ function SideBar() {
            
         </div>
 
-        <div className='sideBar-link' style={{width:'100%', marginTop:'50px'}}><IoIosLogOut /><Link to="/" onClick={handleLogout}>LOGOUT</Link></div>
+        <div className='sideBar-link' style={{width:'100%', marginTop:'50px'}}><IoIosLogOut /><a onClick={handleLogout}>LOGOUT</a></div>
         
     </>
   )
