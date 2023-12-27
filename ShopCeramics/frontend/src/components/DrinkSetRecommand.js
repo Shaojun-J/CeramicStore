@@ -10,7 +10,7 @@ const DrinkSetRecommand= (props) => {
 
     <div className="card recommand-card">
         <div className="card-image recommand-card-image">
-          <Link to={`/ProductDetails/${props.id}`}> 
+          <Link to={`/DrinkSetDetails/${props.id}`}> 
             <img className="porduct-images"  src={props.imgURL} alt="product-image"/>
           </Link>
         </div>
