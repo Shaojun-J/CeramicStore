@@ -10,7 +10,7 @@
             "name":"European Royal Style",
             "price":129.99,
             "rate":4.8,
-            "included":["dinner platessalad","bowlscereal bowlsmezcal"],
+            "included":["tea pot","tea cup"],
             "detail":"These items are handmade and natural, expect variations in colors + patterns, dishwasher and microwave safevariation in size can be up to .5",
             "number_of_reviews":119,
             "review":[{
@@ -42,7 +42,7 @@
             "name":"Holiday Set",
             "price":29.99,
             "rate":4.7,
-            "included":["dinner platessalad","bowlscereal bowlsmezcal"],
+            "included":["tea cups","tea plates"],
             "detail":"These items are handmade and natural, expect variations in colors + patterns, dishwasher and microwave safevariation in size can be up to .5",
             "number_of_reviews":120,
             "review":[{
@@ -68,7 +68,7 @@
             "name":"breezy Set",
             "price":139.99,
             "rate":4.9,
-            "included":["dinner platessalad","bowlscereal bowlsmezcal"],
+            "included":["tea pot","tea cups","tea plates"],
             "detail":"These items are handmade and natural, expect variations in colors + patterns, dishwasher and microwave safevariation in size can be up to .5",
             "number_of_reviews":163,
             "review":[{
@@ -94,7 +94,7 @@
             "name":"Marbillion",
             "price":115.99,
             "rate":5,
-            "included":["dinner platessalad","bowlscereal bowlsmezcal"],
+            "included":["tea pot","tea cup"],
             "detail":"These items are handmade and natural, expect variations in colors + patterns, dishwasher and microwave safevariation in size can be up to .5",
             "number_of_reviews":125,
             "review":[{
@@ -125,7 +125,7 @@
             "name":"Blurish Set",
             "price":119.99,
             "rate":4.5,
-            "included":["dinner platessalad","bowlscereal bowlsmezcal"],
+            "included":["tea pot","tea cups"],
             "detail":"These items are handmade and natural, expect variations in colors + patterns, dishwasher and microwave safevariation in size can be up to .5",
             "number_of_reviews":254,
             "review":[{
@@ -151,7 +151,7 @@
             "name":"Pink Panther",
             "price":101.99,
             "rate":5,
-            "included":["dinner platessalad","bowlscereal bowlsmezcal"],
+            "included":["tea cups","tea plates"],
             "detail":"These items are handmade and natural, expect variations in colors + patterns, dishwasher and microwave safevariation in size can be up to .5",
             "number_of_reviews":198,
             "review":[{

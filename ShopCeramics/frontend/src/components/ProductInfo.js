@@ -25,7 +25,7 @@ const ProductInfo = (props) => {
       <p className="about-card-body margin-top-bottom font-color-black">
         included:
         <br />
-        {included}
+        {included.map((content)=> (<p>{content}</p>))}
       </p>
       <p className="about-card-body font-color-black">{props.detail}</p>
       <label htmlFor="quantity">Quantity:</label>
