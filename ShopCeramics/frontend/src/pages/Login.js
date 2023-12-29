@@ -10,16 +10,17 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 const Login = () => {
   const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
-  const { login, error, isLoading } = useLogin();
+  const { login, googleLogin, error, isLoading } = useLogin();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     await login(identifier, password);
   }
 
-  const googleUserData = (user) => {
+  const googleUserData = async (user) => {
     console.log('google user data');
     console.log(user);
+    await googleLogin(user);
   }
 
   return (
