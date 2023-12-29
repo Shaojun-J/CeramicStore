@@ -147,3 +147,4 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 
+ShopCeramics/frontend/package-lock.json
