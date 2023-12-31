@@ -34,12 +34,12 @@ const Navbar =() =>{
                         <IoIosClose />
                     </div>
                     {isMenuExtend && 
-                      <SideBar/>
+                      <SideBar onClose={handleSideBar}/>
                     }
                     {!isMenuExtend && 
                       <>
                         <div><Link to="/about">ABOUT US</Link></div>
-                        <div><Link to="/signup">CONTACT US</Link></div>
+                        <div><Link to="/contact">CONTACT US</Link></div>
                       </>
                     }
                    

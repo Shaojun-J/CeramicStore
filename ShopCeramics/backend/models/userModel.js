@@ -15,8 +15,13 @@ const orderRecordSchema = new Schema({
     }
 });
 
+
 const userSchema = new Schema({
-    username: { type: String,required: true,unique: true,},
+
+    type: { type: String, default: 'user' },
+    
+    user:{
+        username: { type: String,required: true,unique: true,},
     email: {type: String,required: true,unique: true,
         validate: {
             validator: function (value) {
@@ -26,8 +31,19 @@ const userSchema = new Schema({
         },
     },
     password: { type: String,required: true},
+    },
+    
+
+    googleUser:{
+        googleId:{type: String, required: true},
+        name: {type:String},
+        email:{type:String},
+        picture:{type:String}
+        
+    },
 
     orderRecords: [orderRecordSchema],
+
     
 },{timestamps:true});
 

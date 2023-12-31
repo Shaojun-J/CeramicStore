@@ -15,7 +15,7 @@ export const useLogin =() =>{
        const response = await fetch('/account/login', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({identifier,password})
+        body: JSON.stringify({identifier,password, type: 'user'})
        })
 
        const json = await response.json();
@@ -34,5 +34,31 @@ export const useLogin =() =>{
        }
     }
 
-    return {login, isLoading, error} 
+    const googleLogin = async (userInfo) =>{
+        setIsLoading(true);
+        setError(null);
+        
+        const response = await fetch('/account/login', {
+         method: 'POST',
+         headers: {'Content-Type': 'application/json'},
+         body: JSON.stringify({userInfo, type: 'googleuser'})
+        })
+ 
+        const json = await response.json();
+ 
+        if(!response.ok){
+         setIsLoading(false);
+         setError(json.error);
+        }
+        if(response.ok){
+         //save the user to local storage
+         localStorage.setItem('user', JSON.stringify(json));
+         dispatch({type: 'LOGIN', payload: json})
+         
+         setIsLoading(false);
+         navigate('/');
+        }
+     }
+
+    return {login, googleLogin, isLoading, error} 
 }
