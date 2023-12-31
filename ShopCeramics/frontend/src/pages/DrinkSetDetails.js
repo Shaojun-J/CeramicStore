@@ -111,7 +111,7 @@ const DrinkSetDetails = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

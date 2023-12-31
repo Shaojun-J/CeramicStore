@@ -9,7 +9,8 @@ const DrinkSetCard = (props) => {
     <div className="card">
         <div className="card-image">
           <Link to={`/DrinkSetDetails/${props.id}`}> 
-            <img className="porduct-images tableware-images"  src={props.imgURL} alt="product-image"/>
+            {/* <img className="porduct-images tableware-images"  src={props.imgURL} alt="product-image"/> */}
+            <img className="porduct-images"  src={props.imgURL} alt="product-image"/>
           </Link>
         </div>
         <div className="card-body">
