@@ -1,20 +1,20 @@
 import {Link} from 'react-router-dom';
 import { useAuthContext } from '../hooks/useAuthContext';
-import { useState} from 'react';
-
+import { useState,  useContext }  from 'react';
 import SideBar from './SideBar';
-
-
-
 import {FaBars} from 'react-icons/fa';
 import { IoIosClose } from "react-icons/io";
-
+import { ShopContext } from "../context/shop-context";
 
 const Navbar =() =>{ 
 
     const [isMenuExtend, setIsMenuExtend] = useState(false)
 
     const{user} = useAuthContext();
+
+    const { getTotalCartItems} = useContext(ShopContext);
+
+    const totalitems = getTotalCartItems();
 
     const handleClick = () =>{
         setIsMenuExtend(!isMenuExtend);
@@ -50,14 +50,14 @@ const Navbar =() =>{
                    {user && (
                     <>
                     <div><Link to="/myaccount" className='btn'>{(user.username || user.email.substring(0, user.email.indexOf('@'))).toUpperCase()}</Link></div>
-                    <div><Link to="/mycart">YOUR CART</Link></div>
+                    <div><Link to="/mycart">YOUR CART {totalitems !== 0 &&<span className="cartCount ">{totalitems}</span>} </Link></div>
                     </>
                    )}
 
                    {!user && (
                     <>
                     <div><Link to="/myaccount">MY ACCOUNT</Link></div>
-                    <div><Link to="/mycart">MY CART</Link></div>
+                    <div><Link to="/mycart">MY CART {totalitems !== 0 &&<span className="cartCount ">{totalitems}</span>}</Link></div>
                     </>
                    )}
                    
