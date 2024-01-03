@@ -43,7 +43,8 @@ function App() {
         <Route path="/faq" element={<Faq/>} />
         <Route path="/contact" element={<ContactUs/>} />
         <Route path="/orderconfirmation" element={<OrderConfirmation/>} />
-        <Route path="/CURD" element={<ReviewDashboard  />} />
+
+        <Route path="/CURD/reviews" element={<ReviewDashboard  />} />
       </Routes>
       </ShopContextProvider>
      </BrowserRouter>

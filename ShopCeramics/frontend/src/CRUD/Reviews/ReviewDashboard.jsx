@@ -1,15 +1,15 @@
-import React, { useEffect,useState } from 'react';
-import Data from '../../data/adminData.json';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faUser,faHouse,faBookmark,faCircleUser,faCartShopping,faStar, faArrowRightFromBracket} from "@fortawesome/free-solid-svg-icons";
+import React, { useEffect,useState} from 'react';
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import {faUser,faHouse,faBookmark,faCircleUser,faCartShopping,faStar, faArrowRightFromBracket} from "@fortawesome/free-solid-svg-icons";
 import DashboradReviewCard  from "../../components/DashboradReviewCard "
-import reviewData from "../../data/reviewsData.json"
 import './ReviewDashboard.css'
 import axios from "axios"
-
+import NavbarCRUD from "../NavbarCRUD"
+import { IoMdArrowDropdown } from "react-icons/io";
 
 const ReviewDashboard = () => {
     const [reviews,setReviews]=useState([]);
+
     const card = reviews.map((review)=>{
         return(
         <DashboradReviewCard 
@@ -30,40 +30,13 @@ const ReviewDashboard = () => {
         .catch(err=>console.log(err))
     },[])
   return (
-
+<>
+<NavbarCRUD />
     <div className="dashboard-wrapper">
-        <div className="sideNavbar-container">
-        <h2 className='dashborard-title'>CURD OPERATIONS</h2>
-            <div className="admin-info">
-                <FontAwesomeIcon icon={faUser} className='user-icon'/>
-                <h5 className='admin'>{Data.admin[0].name}</h5>
-                <span className='name-subtitle'>admin</span>
-            </div>
-            <div className="sideNavbar-container">
-                <ul className='sideNavbar'>
-                    <li className='sideNavbar-item'><FontAwesomeIcon className='sideNavbar-item-icon' icon={faHouse} />
-                     Home</li>
-                     <li className='sideNavbar-item'><FontAwesomeIcon className='sideNavbar-item-icon' icon={faBookmark} />
-                     Products</li>
-                     <li className='sideNavbar-item'><FontAwesomeIcon className='sideNavbar-item-icon' icon={faCircleUser} />
-                     Users</li>
-                     <li className='sideNavbar-item'><FontAwesomeIcon className='sideNavbar-item-icon' icon={faCartShopping} />
-                     Cart</li>
-                     <li className='sideNavbar-item'><FontAwesomeIcon className='sideNavbar-item-icon' icon={faStar} />
-                     Reviews</li>
-                </ul>
 
-            </div>
-            <div className='dashborad-logout '>
-                <span className='logout-text'>Logout</span>
-                <FontAwesomeIcon className='sideNavbar-item-icon' icon={faArrowRightFromBracket} />
-            </div>
-        </div>
-
+        
         <div className="dashboard-mian">
-           
             <div className="searchBar-box">
-               
                 <input type="text" className='searchBar' placeholder='search by ID ...'>
                 </input>
                 <input  type="button" className='search-btn'  value='Search'></input>
@@ -71,20 +44,20 @@ const ReviewDashboard = () => {
             <div className="dashboard-body">
                 <div className="dashboard-top">
                 <div className="dashboard-main-title">
-                <h4 className="dashboard-title">Review List</h4>  
+                    <h4 className="dashboard-title">Review List</h4>  
                     <input  type="button" className='add-new-review-btn search-btn'  value='ADD NEW REVIEW'></input>
                 </div>
-                
+                </div>
                     <table className='review-list'>
                         <thead>
                             <tr>
-                                <td  className='table-head'>ID</td> 
-                                <td  className='table-head'>Proudct ID</td>              
-                                <td  className='table-head'>Title</td>
-                                <td  className='table-head'>Rate</td>
-                                <td  className='table-head'>Country</td>
-                                <td  className='table-head'>Date</td>
-                                <td  className='table-head'>Content</td>
+                                <th  className='table-head' >ID</th> 
+                                <th  className='table-head' >Proudct ID</th>              
+                                <th  className='table-head'>Title</th>
+                                <th  className='table-head' >Rate</th>
+                                <th  className='table-head'>Country</th>
+                                <th  className='table-head'>Date</th>
+                                <th  className='table-head'>Content</th>
                             </tr>
                         </thead>
                         <tbody className='table-body'>
@@ -92,11 +65,12 @@ const ReviewDashboard = () => {
                             
                         </tbody>
                     </table>
-                </div>
+               
             </div>
 
         </div>
     </div>
+    </>
   )
 }
 
