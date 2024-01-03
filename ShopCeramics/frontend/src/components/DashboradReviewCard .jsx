@@ -5,6 +5,7 @@ const DashboradReviewCard  = (props) => {
   return (
     <tr className='table-row'>
         <td className='table-data' >{props.id}</td>  
+        <td className='table-data' >{props.product_id}</td>  
         <td className='table-data' >{props.title}</td> 
         <td className='table-data' >{props.rate}</td> 
         <td className='table-data' >{props.country}</td> 

@@ -66,9 +66,9 @@ const MyCart = () => {
                     <button
                     className="checkout-btn"
                       onClick={() => {
-                        checkout();
+                        // checkout();
                         setShowPayment(true);
-                        // navigate("/checkout");
+
                       }}
                     >
                       {" "}
@@ -156,6 +156,16 @@ const MyCart = () => {
               <div className="stripe-payment-form">
                 <p>THE INFO FOR THIS AREA WILL BE PASRSED FROM STRIPE </p>
               </div>
+              <button
+                    className="checkout-btn"
+                      onClick={() => {
+                        checkout();
+
+                      }}
+                    >
+                      {" "}
+                      Pay now{" "}
+                    </button>
             </div>
          </div>
          </div>)}

@@ -27,7 +27,7 @@ const ProductCard = (props) => {
                 <span className='rate'>{props.rate}</span>
                 <span className='review-number'>({props.numberOfViews})reviews</span>
             </div>
-            <input type="button" className="button btn-add-to-cart btn-blue" value={"Add To Cart"}  onClick={() => addToCart(props.id)} />
+            <input type="button" className="button btn-add-to-cart btn-blue" value={`Add To Cart ${cartItemCount > 0 ? `(${cartItemCount})` : ''}`}  onClick={() => addToCart(props.id)} />
    
         </div>
     </div>

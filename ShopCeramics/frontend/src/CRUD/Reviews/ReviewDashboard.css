@@ -1,10 +1,9 @@
 .dashboard-wrapper{
-    width: 100%;
-    max-height: 900px;
+    width: 100;
+    max-height: fit-content;
     display: grid;
-    column-gap:0px;
     grid-template-columns: 20% 80%;
-
+    padding: 20px auto;
 }
 .sideNavbar-container{
     display: grid;
@@ -157,3 +156,32 @@ align-items: end;
 .edit-icon:hover{
     color:#5659f5;
 }
+
+@media (max-width: 990px){
+    .dashboard-wrapper{
+        width: 100;
+        max-height: fit-content;
+        display: grid;
+        grid-template-columns: 100%;
+        padding: 20px auto;
+    }
+    .admin-info{
+        display: none;
+        }
+    .sideNavbar-container{
+        display: grid;
+        grid-template-columns: 30% auto 60% auto;
+        padding: 10px;
+        background-color:#FCFAF4;
+        text-align: center;
+        justify-content: center;
+    
+    }
+
+   
+    .sideNavbar{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+  }

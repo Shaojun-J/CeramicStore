@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import Data from '../../data/adminData.json';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faUser,faHouse,faBookmark,faCircleUser,faCartShopping,faStar, faArrowRightFromBracket} from "@fortawesome/free-solid-svg-icons";
 import DashboradReviewCard  from "../../components/DashboradReviewCard "
 import reviewData from "../../data/reviewsData.json"
 import './ReviewDashboard.css'
+import axios from "axios"
+
 
 const ReviewDashboard = () => {
-    const card = reviewData.reviews.map((review)=>{
+    const [reviews,setReviews]=useState([]);
+    const card = reviews.map((review)=>{
         return(
         <DashboradReviewCard 
         key={review.id}
         id={review.id}
+        product_id={review.product_id}
         title={review.title}
         rate={review.rate}
         country={review.country}
@@ -19,6 +23,12 @@ const ReviewDashboard = () => {
         text={review.text}
         />)
     })
+
+    useEffect(()=>{
+        axios.get('http://localhost:4000/reviews')
+        .then(reviews=>setReviews(reviews.data))
+        .catch(err=>console.log(err))
+    },[])
   return (
 
     <div className="dashboard-wrapper">
@@ -68,7 +78,8 @@ const ReviewDashboard = () => {
                     <table className='review-list'>
                         <thead>
                             <tr>
-                                <td  className='table-head'>ID</td>            
+                                <td  className='table-head'>ID</td> 
+                                <td  className='table-head'>Proudct ID</td>              
                                 <td  className='table-head'>Title</td>
                                 <td  className='table-head'>Rate</td>
                                 <td  className='table-head'>Country</td>
@@ -78,7 +89,7 @@ const ReviewDashboard = () => {
                         </thead>
                         <tbody className='table-body'>
                             {card}
-                            {card}
+                            
                         </tbody>
                     </table>
                 </div>
