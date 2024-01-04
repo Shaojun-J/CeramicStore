@@ -49,8 +49,10 @@ const Navbar =() =>{
                 <nav className='navUser'>
                    {user && (
                     <>
+
                     <div><Link to="/myaccount" className='btn'>{(user.username || user.email.substring(0, user.email.indexOf('@'))).toUpperCase()}</Link></div>
                     <div><Link to="/mycart">YOUR CART {totalitems !== 0 &&<span className="cartCount ">{totalitems}</span>} </Link></div>
+
                     </>
                    )}
 
