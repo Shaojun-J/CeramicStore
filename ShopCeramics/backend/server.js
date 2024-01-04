@@ -7,7 +7,7 @@ const productRoutes = require('./routes/productRoute');
 const shoppingCartRoutes = require('./routes/shoppingCartRoute');
 const cors = require('cors');
 const Review = require('./models/ReviewModel');
-const cors= require('cors');
+
 
 const app = express();
 

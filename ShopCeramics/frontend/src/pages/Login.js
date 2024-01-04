@@ -6,7 +6,6 @@ import { useLogin } from '../hooks/useLogin';
 import google from '../assets/google.png';
 import GoogleLogin from '../components/GoogleLogin';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import env from "react-dotenv";
 
 const Login = () => {
   const [identifier, setIdentifier] = useState('');
