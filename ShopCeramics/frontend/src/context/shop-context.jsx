@@ -58,7 +58,7 @@ export const ShopContextProvider = (props) => {
   //   }
   // }
 
-    fetch('http://localhost:4000/create-checkout-session',
+    fetch('http://localhost:4000/ckeckout',
           {
             method: 'POST',
             headers: {

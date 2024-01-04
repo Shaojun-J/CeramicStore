@@ -7,6 +7,7 @@ const productRoutes = require('./routes/productRoute');
 const shoppingCartRoutes = require('./routes/shoppingCartRoute');
 const cors = require('cors');
 const Review = require('./models/ReviewModel');
+ const CheckoutRoute = require('./routes/checkoutRoute');
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use('/account',userRoutes);
 app.use('/orders',orderRoutes);
 app.use('/products', productRoutes);
 app.use('/shoppingcart', shoppingCartRoutes);
+ app.use('/ckeckout', CheckoutRoute);
 
 app.get('/', (req,res)=>{
    res.json({message: 'welcome to my shop'});
