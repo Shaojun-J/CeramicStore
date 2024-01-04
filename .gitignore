@@ -148,3 +148,5 @@ dist
 .svelte-kit
 
 ShopCeramics/frontend/package-lock.json
+ShopCeramics/frontend/public/env.js
+ShopCeramics/backend/package-lock.json
