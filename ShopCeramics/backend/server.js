@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoute');
 const Review = require('./models/ReviewModel');
 const cors= require('cors');
+const checkoutRoutes = require('./routes/checkoutRoute');
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use((req,res,next) =>{
 
 //routes
 app.use('/account',userRoutes);
+app.use('/create-checkout-session', checkoutRoutes);
 
 app.get('/', (req,res)=>{
    res.json({message: 'welcome to my shop'});

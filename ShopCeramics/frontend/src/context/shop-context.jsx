@@ -49,7 +49,38 @@ export const ShopContextProvider = (props) => {
     setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
   };
 
-  const checkout = () => {
+  const checkout = async () => {
+   
+  // let items = [];
+  // for (const item in cartItems) {
+  //   if (cartItems[item] > 0) {
+  //     items.push({ id: item, quantity: cartItems[item] });
+  //   }
+  // }
+
+    fetch('http://localhost:4000/create-checkout-session',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                //TODO: get the items from the cart
+
+              items: [
+                { id: 1, quantity: 3 },
+                { id: 2, quantity: 1 },
+              ]
+            }),
+          }).then(res => {
+          if (res.ok) return res.json();
+          return res.json.then(json => Promise.reject(json));
+        }).then(({ url }) => {
+          // console.log(url);
+          window.location = url;
+        }).catch(e => {
+          console.error(e.error);
+        });
     setCartItems(getDefaultCart());
   };
 

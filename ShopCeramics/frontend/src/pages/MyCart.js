@@ -152,10 +152,10 @@ const MyCart = () => {
 
           <div className="cart-bottom">
             <div className="payment-section">
-              <h3>Payment Details</h3>
+              {/* <h3>Payment Details</h3>
               <div className="stripe-payment-form">
                 <p>THE INFO FOR THIS AREA WILL BE PASRSED FROM STRIPE </p>
-              </div>
+              </div> */}
               <button
                     className="checkout-btn"
                       onClick={() => {
