@@ -49,7 +49,7 @@ const Navbar =() =>{
                 <nav className='navUser'>
                    {user && (
                     <>
-                    <div><Link to="/myaccount" className='btn'>{(user.username || user.email.substring(0, user.email.indexOf('@'))).toUpperCase()}</Link></div>
+                    <div><Link to="/myaccount" className='btn'>{user.username.split(" ")[0].toUpperCase() }</Link></div>
                     <div><Link to="/mycart">YOUR CART</Link></div>
                     </>
                    )}
