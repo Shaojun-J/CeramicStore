@@ -2,11 +2,13 @@ import React, { useContext } from "react";
 import {Link} from 'react-router-dom';
 import Stars from "./Stars";
 import { ShopContext } from "../context/shop-context";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 
 const ProductCard = (props) => {
   const { addToCart, cartItems } = useContext(ShopContext);
   const cartItemCount = cartItems[props.id];
+  const { user } = useAuthContext();
 
   return (
     
@@ -27,7 +29,7 @@ const ProductCard = (props) => {
                 <span className='rate'>{props.rate}</span>
                 <span className='review-number'>({props.numberOfViews})reviews</span>
             </div>
-            <input type="button" className="button btn-add-to-cart btn-blue" value={`Add To Cart ${cartItemCount > 0 ? `(${cartItemCount})` : ''}`}  onClick={() => addToCart(props.id)} />
+            <input type="button" className="button btn-add-to-cart btn-blue" value={`Add To Cart ${cartItemCount > 0 ? `(${cartItemCount})` : ''}`}  onClick={() => addToCart(props._id,user)} />
    
         </div>
     </div>

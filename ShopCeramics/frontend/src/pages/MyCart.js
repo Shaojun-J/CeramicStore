@@ -30,7 +30,7 @@ const MyCart = () => {
       image={product.imageURL[0]}
     />
   ));
-
+    // console.log("====> my cart, user id:",user);
   return (
     <div className="page-container">
       <Promo />
@@ -159,7 +159,7 @@ const MyCart = () => {
               <button
                     className="checkout-btn"
                       onClick={() => {
-                        checkout();
+                        checkout(user);
 
                       }}
                     >

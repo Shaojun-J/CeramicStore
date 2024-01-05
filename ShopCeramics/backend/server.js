@@ -7,7 +7,8 @@ const productRoutes = require('./routes/productRoute');
 const shoppingCartRoutes = require('./routes/shoppingCartRoute');
 const cors = require('cors');
 const Review = require('./models/ReviewModel');
- const CheckoutRoute = require('./routes/checkoutRoute');
+const CheckoutRoute = require('./routes/checkoutRoute');
+
 
 const app = express();
 
@@ -15,44 +16,45 @@ const app = express();
 app.use(cors());
 app.use(express.json()); //check req body, if there is body then attach to req object
 
-app.use((req,res,next) =>{
+app.use((req, res, next) => {
     console.log(req.path, req.method);
     next();
 });
 
 
 //routes
-app.use('/account',userRoutes);
-app.use('/orders',orderRoutes);
+app.use('/account', userRoutes);
+app.use('/orders', orderRoutes);
 app.use('/products', productRoutes);
 app.use('/shoppingcart', shoppingCartRoutes);
- app.use('/ckeckout', CheckoutRoute);
+app.use('/ckeckout', CheckoutRoute);
 
-app.get('/', (req,res)=>{
-   res.json({message: 'welcome to my shop'});
+
+app.get('/', (req, res) => {
+    res.json({ message: 'welcome to my shop' });
 })
 
 // get reviews data from db
-app.get('/reviews', (req,res)=>{
+app.get('/reviews', (req, res) => {
     Review
-    .find()
-    .then((reviews)=>{
-        res.json(reviews);
-    })
-    .catch((err)=> res.json(err))
- })
+        .find()
+        .then((reviews) => {
+            res.json(reviews);
+        })
+        .catch((err) => res.json(err))
+})
 
 
 //connect to db
 mongoose.connect(process.env.MONGO_URI)
-.then(() =>{
-    app.listen(process.env.PORT, () =>{
-        console.log(`connecting to DB & listening on port ${process.env.PORT}`);
+    .then(() => {
+        app.listen(process.env.PORT, () => {
+            console.log(`connecting to DB & listening on port ${process.env.PORT}`);
+        })
     })
-})
-.catch((err)=>{
-  console.log(err);
-})
+    .catch((err) => {
+        console.log(err);
+    })
 
 
 

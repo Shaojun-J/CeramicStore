@@ -17,8 +17,19 @@ const getShoppingCart = async (req, res) =>{
 
 //add an item to a user's shopping cart
 const addItem = async (req, res) =>{
-    const userId = req.user;
-  const {productId, name, imageURL, price,quantity} = req.body;//do not need parse all the fields. id can be used to find and render details on page
+    console.log("==> shoppingCartController.js: addItem",req.body);
+    console.log("req.user:",req.user);
+    let userId;
+    if(!req.user){
+        userId = req.user;
+        console.log("req.user:",req.user);
+    }
+    else {
+        userId = req.body.userid;
+        console.log("req.body.userid:",req.body.userid);
+    }
+//   const {productId, name, imageURL, price,quantity} = req.body;//do not need parse all the fields. id can be used to find and render details on page
+   const {productId, quantity} = req.body;//do not need parse all the fields. id can be used to find and render details on page
 
   try{
     const user = await User.findById(userId);
@@ -26,6 +37,7 @@ const addItem = async (req, res) =>{
       return res.status(404).json({message: 'User not found'});
     }
     const product = await Product.findById(productId);//productId here must be mongodb id
+    // const product = await Product.findOne({id: productId});//productId here must be mongodb id
     if (!product) {
         return res.status(404).json({ message: 'Product not found' });
     }
@@ -36,14 +48,16 @@ const addItem = async (req, res) =>{
         user.shoppingCart[existingItemIndex].productQuantity += quantity;
     } else {
         // Add new item to the cart
-        user.shoppingCart.push({ productId, name, imageURL, price, productQuantity: quantity});
+        // user.shoppingCart.push({ productId, name, imageURL, price, productQuantity: quantity});
+        user.shoppingCart.push({ productId, productQuantity: quantity});
     }
 
     // Save the user with the updated cart
     await user.save();
-
+    console.log("==>OK : addItem user.shoppingCart:",user.shoppingCart);
     res.status(200).json(user.shoppingCart);
   }catch(err){ 
+    console.log("==>Err: addItem err:",err);
     res.status(500).json({message: err.message});
   }
 }
