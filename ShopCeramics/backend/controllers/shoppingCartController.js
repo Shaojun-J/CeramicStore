@@ -20,7 +20,7 @@ const addItem = async (req, res) =>{
     console.log("==> shoppingCartController.js: addItem",req.body);
     console.log("req.user:",req.user);
     let userId;
-    if(!req.user){
+    if(req.user){
         userId = req.user;
         console.log("req.user:",req.user);
     }

@@ -30,7 +30,8 @@ function App() {
 
         <Route path="/tableware" element={<ProductCategory/>} />
         <Route path="/about" element={<About />} />
-        <Route path="/ProductDetails/:id" element={<ProductDetails />} />
+        {/* <Route path="/ProductDetails/:id" element={<ProductDetails />} /> */}
+        <Route path="/ProductDetails" element={<ProductDetails />} />
         <Route path="/*" element={<NotFoundPage />} />
 
         <Route path="/drinkset" element={<DrinkSetMain/>}/>

@@ -85,8 +85,11 @@ const ProductCategory = () => {
 
           {data.map((productInfo) => (
             <ProductCard
+              data = {productInfo}
+              products = {data}
               key={productInfo.id}
               id={productInfo.id}
+              _id={productInfo._id}
               imgURL={productInfo.imageURL[0]}
               name={`${productInfo.name[0].toUpperCase()}${productInfo.name.slice(1)}`}
               price={productInfo.price}

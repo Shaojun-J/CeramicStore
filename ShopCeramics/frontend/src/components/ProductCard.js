@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import {Link} from 'react-router-dom';
+import {Link, } from 'react-router-dom';
 import Stars from "./Stars";
 import { ShopContext } from "../context/shop-context";
 import { useAuthContext } from "../hooks/useAuthContext";
@@ -10,11 +10,18 @@ const ProductCard = (props) => {
   const cartItemCount = cartItems[props.id];
   const { user } = useAuthContext();
 
+  // console.log("-->data:", props.data);
+  
+  let info = {
+    data: props.data,
+    products: props.products
+  };
   return (
     
     <div className="card">
         <div className="card-image">
-          <Link to={`/ProductDetails/${props.id}`}> 
+          {/* <Link to={`/ProductDetails/${props.id}`}>  */}
+          <Link to="/ProductDetails" state = {info} >
             <img className="porduct-images tableware-images"  src={props.imgURL} alt="product-image"/>
           </Link>
         </div>
