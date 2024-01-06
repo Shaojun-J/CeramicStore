@@ -139,6 +139,9 @@ export const ShopContextProvider = (props) => {
   };
 
   const addToCart = async (itemId, user) => {
+    if(!user){
+      return;
+    }
     // setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
 
     // console.log("addToCart, userid:", user, itemId);
