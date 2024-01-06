@@ -1,14 +1,17 @@
 
-const reviewRoutes = require("./routes/reviewRoute");
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
+
+
 const userRoutes = require('./routes/userRoute');
 const orderRoutes = require('./routes/orderRoute');
 const productRoutes = require('./routes/productRoute');
 const shoppingCartRoutes = require('./routes/shoppingCartRoute');
-const cors = require('cors');
-const Review = require('./models/ReviewModel');
 const CheckoutRoute = require('./routes/checkoutRoute');
+const reviewRoutes = require("./routes/reviewRoute");
+
+const Review = require('./models/ReviewModel');
 
 
 const app = express();

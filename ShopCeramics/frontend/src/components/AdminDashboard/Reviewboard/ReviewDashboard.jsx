@@ -38,7 +38,7 @@ useEffect(() => {
     ];
     setproductList(uniqueProductIds);
     console.log(productList);
-  }, [productList, reviews]);
+  }, [reviews]);
 
   const handleChange = (e) => {
     setInput(e.target.value);
