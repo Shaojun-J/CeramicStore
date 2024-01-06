@@ -1,6 +1,6 @@
 import React from "react";
 
-const DashboradReviewCard = (props) => {
+const Reviewborad = (props) => {
   const firstLine = props.text.split(/[\n!.,]/)[0];
 
   return (
@@ -16,4 +16,4 @@ const DashboradReviewCard = (props) => {
   );
 };
 
-export default DashboradReviewCard;
+export default Reviewborad;

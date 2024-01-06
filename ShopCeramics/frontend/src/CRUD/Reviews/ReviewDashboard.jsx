@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import {faUser,faHouse,faBookmark,faCircleUser,faCartShopping,faStar, faArrowRightFromBracket} from "@fortawesome/free-solid-svg-icons";
-import DashboradReviewCard from "../../components/DashboradReviewCard ";
+import DashboradReviewCard from "../../components/AdminDashboard/Reviewboard/Reviewboard ";
 import "./ReviewDashboard.css";
 import axios from "axios";
 import NavbarCRUD from "../NavbarCRUD";
-import { IoMdArrowDropdown } from "react-icons/io";
+
 
 const ReviewDashboard = () => {
   const [reviews, setReviews] = useState([]);

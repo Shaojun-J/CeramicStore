@@ -51,9 +51,7 @@ function App() {
         <Route path="/contact" element={<ContactUs/>} />
         <Route path="/orderconfirmation" element={<OrderConfirmation/>} />
 
-        <Route path="/CURD/reviews" element={<ReviewDashboard  />} />
         <Route path="/userReviews" element={<UserReviews  />} />
-        
         <Route path="/adminportal" element={user && <Admin />} />
       </Routes>
       </ShopContextProvider>

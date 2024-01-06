@@ -3,15 +3,13 @@ import {useNavigate, Link} from 'react-router-dom';
 import { useAuthContext } from '../hooks/useAuthContext';
 import {useLogout} from '../hooks/useLogout';
 import {getHours} from 'date-fns';
-
-
 import Navbar from '../components/Navbar';
 import Promo from '../components/Promo/Promo';
 import Footer from '../components/Footer/Footer';
 import Userboard from '../components/AdminDashboard/Userboard/Userboard';
 import Productboard from '../components/AdminDashboard/Productboard/Prodcutboard';
 import Orderboard from '../components/AdminDashboard/Orderboard/Orderboard';
-
+import Reviewboard from '../components/AdminDashboard/Reviewboard/ReviewDashboard'
 export default function Admin() {
    
     const {user} = useAuthContext();
@@ -131,6 +129,7 @@ export default function Admin() {
                     {activeView === 'users' && <Userboard data={users}/>}
                     {activeView === 'products' && <Productboard data={products}/>}
                     {activeView === 'orders' && <Orderboard data={orders}/>}
+                    {activeView === 'reviews' && <Reviewboard />}
 
                
 

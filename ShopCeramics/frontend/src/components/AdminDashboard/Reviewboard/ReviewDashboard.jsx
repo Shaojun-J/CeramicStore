@@ -1,44 +1,38 @@
 import React, { useEffect, useState } from "react";
-import { useAuthContext } from "../../hooks/useAuthContext";
-import DashboradReviewCard from "../AdminDashboard/Reviewboard/Reviewboard ";
-import Navbar from "../Navbar";
-import "./userReviews.css";
+import DashboradReviewCard from "./Reviewboard ";
+import "./ReviewDashboard.css";
 import axios from "axios";
-import CreateReviews from "./CreateReviews";
-import SearchReviews from "./SearchReviews";
-import Promo from "../Promo/Promo";
+import { useAuthContext } from "../../../hooks/useAuthContext";
+import SearchReviews from "./SearchReview";
 
 const ReviewDashboard = () => {
   const [reviews, setReviews] = useState([]);
+
+  const { user } = useAuthContext();
+  const [input, setInput] = useState(null);
   const [showAdd, setShowAdd] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [showbtn, setShowbtn] = useState(false);
   const [updateUI, setUpdateUI] = useState(false);
-  const [input, setInput] = useState(null);
-
-  const { user } = useAuthContext();
-
   const [productList, setproductList] = useState([]);
 
   useEffect(() => {
-    const userName = user ? user.username : null;
-    console.log("User:", user);
     const fetchData = async () => {
-      await axios
-        .get(`http://localhost:4000/reviews/username/${userName}`)
-        .then((data) => {
-          if (Array.isArray(data.data.data)) {
-            setReviews(data.data.data);
-          } else {
-            console.error("Invalid data format from the API");
-          }
-        })
-        .catch((err) => console.log(err));
-    };
-    fetchData();
-  }, [updateUI, user]);
-  
-  useEffect(() => {
+      const response = await  axios
+      .get("http://localhost:4000/reviews")
+      .then((data) => {
+        if (Array.isArray(data.data.data)) {
+          setReviews(data.data.data);
+        } else {
+          console.error("Invalid data format from the API");
+        }
+      })
+      .catch((err) => console.log(err));
+  }
+  fetchData();
+  },[user]);
+
+useEffect(() => {
     const uniqueProductIds = [
       ...new Set(reviews.map((item) => item.product_id)),
     ];
@@ -46,25 +40,17 @@ const ReviewDashboard = () => {
     console.log(productList);
   }, [productList, reviews]);
 
-  console.log(productList);
-
   const handleChange = (e) => {
     setInput(e.target.value);
   };
-  const handleAdd = () => {
-    setShowAdd(true);
-    setShowbtn(true);
-  };
-
   const handleSearch = () => {
     setShowSearch(true);
     setShowbtn(true);
   };
-
-  const handleCloseModals = () => {
+ const handleCloseModals = () => {
     setShowSearch(false);
     setShowAdd(false);
-    setShowbtn(false);
+
   };
   const card = reviews.map((review) => {
     return (
@@ -80,50 +66,35 @@ const ReviewDashboard = () => {
       />
     );
   });
-
   return (
-    <><Promo/>
-      <Navbar />
+    <>
+      
       <div className="dashboard-wrapper">
         <div className="dashboard-mian">
-          
           <div className="dashboard-body">
             <div className="dashboard-top">
               <div className="dashboard-main-title">
-                <h4 className="dashboard-title">Review List</h4>
                 <div className="searchBar-box">
             <input
               type="text"
               className="searchBar"
-              placeholder="search by Review ID or Proudct ID..."
+              placeholder="search by Review ID ..."
               onChange={handleChange}
             ></input>
-            <input
-              type="button"
-              className="search-btn"
-              value="Search"
-              onClick={() => handleSearch()}
-            ></input>
+            <input type="button" className="search-btn" value="Search" onClick={() => handleSearch()}></input>
+            {showbtn && (
+              <input
+                type="button"
+                className="search-btn btn-blue"
+                value="Close"
+                onClick={handleCloseModals}
+              ></input>
+            )}
           </div>
-                <input
-                  type="button"
-                  className="add-new-review-btn search-btn"
-                  value="ADD"
-                  onClick={() => handleAdd()}
-                ></input>
+          
               </div>
             </div>
-            {showAdd && productList && (
-              <div className="edit-container">
-                <CreateReviews
-                  list={productList}
-                  userName={reviews[0].user_name}
-                  userId={reviews[0].user_id}
-                  setUpdateUI={setUpdateUI}
-                />
-              </div>
-            )}
-            {showSearch && productList && (
+            {showSearch && (
               <div className="edit-container">
                 <SearchReviews
                   data={reviews}
@@ -135,20 +106,12 @@ const ReviewDashboard = () => {
                 />
               </div>
             )}
-            {showbtn && (
-              <input
-                type="button"
-                className="search-btn btn-blue"
-                value="Close"
-                onClick={handleCloseModals}
-              ></input>
-            )}
-
+            
             <table className="review-list">
               <thead>
                 <tr>
-                  <th className="table-head">Id</th>
-                  <th className="table-head">Proudct ID</th>
+                  <th className="table-head">Review Id</th>
+                  <th className="table-head">Proudct Id</th>
                   <th className="table-head">Title</th>
                   <th className="table-head">Rate</th>
                   <th className="table-head">Country</th>
