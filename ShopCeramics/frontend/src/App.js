@@ -17,6 +17,7 @@ import OrderConfirmation from './pages/OrderConfirmation';
 import DrinkSetDetails from './pages/DrinkSetDetails';
 import { ShopContextProvider } from "./context/shop-context";
 import ReviewDashboard from './CRUD/Reviews/ReviewDashboard';
+import UserReviews from "./components/UserReviews/UserReviews"
 function App() {
   return (
     <>
@@ -45,6 +46,7 @@ function App() {
         <Route path="/orderconfirmation" element={<OrderConfirmation/>} />
 
         <Route path="/CURD/reviews" element={<ReviewDashboard  />} />
+        <Route path="/userReviews" element={<UserReviews  />} />
       </Routes>
       </ShopContextProvider>
      </BrowserRouter>
