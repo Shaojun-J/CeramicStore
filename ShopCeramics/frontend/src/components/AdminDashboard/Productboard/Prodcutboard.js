@@ -5,8 +5,6 @@ import { useAuthContext } from '../../../hooks/useAuthContext';
 import './Productboard.css';
 import { IoMdArrowDropdown } from "react-icons/io";
 
-
-
 const Productboard = ({data}) => {
 
     
@@ -118,7 +116,8 @@ const Productboard = ({data}) => {
         e.preventDefault();
         setFindError('');
         try {
-            const response = await fetch(`/products?id=${productId}&t=${new Date().getTime()}`, {
+            // const response = await fetch(`/products?id=${productId}&t=${new Date().getTime()}`
+            const response = await fetch(`/products/byId?id=${productId}&t=${new Date().getTime()}`, {
               
               method: 'GET',
               headers: {
@@ -136,9 +135,7 @@ const Productboard = ({data}) => {
                 }
                return;
             }
-            const backProducts = await response.json();
-            console.log(typeof productId);
-            const foundProduct = backProducts.find(product => product.id === Number(productId))//because the backend returns an array of a product
+            const foundProduct = await response.json();
             console.log(foundProduct);
             if(foundProduct){
                 setCategory(foundProduct.category);
@@ -498,7 +495,7 @@ const Productboard = ({data}) => {
                 </tr>
             </thead>
             <tbody>
-                {sortedData.map((product) => (
+                {allProducts.map((product) => (
                     <tr key={product._id}>
                         <td>{product.category}</td>
                         <td>{product.id}</td>
