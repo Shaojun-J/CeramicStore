@@ -66,6 +66,7 @@ export const ShopContextProvider = (props) => {
       console.log("==>getCartInfo: quantity:", cart[item].productQuantity);
       console.log("==>getCartInfo: imageURL:", product.imageURL[0]);
       cartInfo.push({
+        _id: product._id,
         productId: product.id,
         name: product.name,
         price: product.price,
@@ -158,8 +159,36 @@ export const ShopContextProvider = (props) => {
       });
   };
 
-  const removeFromCart = (itemId) => {
+  const removeFromCart = (itemId, user) => {
     // setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
+
+
+    console.log("removeFromCart, userid:", user, itemId);
+    fetch('http://localhost:4000/shoppingcart', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${user.token}`,
+      },
+      // user:userid,
+      body: JSON.stringify({
+        userid: user.userid,
+        productId: itemId,
+        quantity: -1
+      }),
+    }).then(res => {
+      console.log("res:", res);
+      if (res.ok) {
+        //return res.json();  
+        console.log("remove from cart");
+        setNeedUpdate(needUpdate + 1);
+      }
+      else {
+        console.log("not remove from  cart");
+      }
+    }).catch(e => {
+      console.error(e.error);
+    });
   };
 
   const updateCartItemCount = (newAmount, itemId) => {
