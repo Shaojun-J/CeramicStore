@@ -1,7 +1,5 @@
 import React, {useState, useMemo} from 'react'
 import { useAuthContext } from '../../../hooks/useAuthContext';
-
-
 import './Productboard.css';
 import { IoMdArrowDropdown } from "react-icons/io";
 

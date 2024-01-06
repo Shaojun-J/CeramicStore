@@ -1,4 +1,5 @@
-require('dotenv').config();
+
+const reviewRoutes = require("./routes/reviewRoute");
 const express = require('express');
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoute');
@@ -21,14 +22,13 @@ app.use((req, res, next) => {
     next();
 });
 
-
 //routes
 app.use('/account', userRoutes);
 app.use('/orders', orderRoutes);
 app.use('/products', productRoutes);
 app.use('/shoppingcart', shoppingCartRoutes);
-app.use('/checkout', CheckoutRoute);
-
+app.use('/ckeckout', CheckoutRoute);
+app.use("/reviews", reviewRoutes);
 
 app.get('/', (req, res) => {
     res.json({ message: 'welcome to my shop' });
@@ -43,6 +43,7 @@ app.get('/reviews', (req, res) => {
         })
         .catch((err) => res.json(err))
 })
+
 
 
 //connect to db
