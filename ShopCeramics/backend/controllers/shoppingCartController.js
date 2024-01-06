@@ -49,6 +49,12 @@ const addItem = async (req, res) =>{
     if (existingItemIndex > -1) {
       
         user.shoppingCart[existingItemIndex].productQuantity += quantity;
+        if(user.shoppingCart[existingItemIndex].productQuantity<=0){
+            
+            // Remove the item from the cart
+            console.log("==>Remove the item from the cart, quantity<=0 :",user.shoppingCart[existingItemIndex].productQuantity);
+            user.shoppingCart.splice(existingItemIndex, 1);
+        }   
     } else {
         // Add new item to the cart
         // user.shoppingCart.push({ productId, name, imageURL, price, productQuantity: quantity});

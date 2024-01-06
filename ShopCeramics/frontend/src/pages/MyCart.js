@@ -26,7 +26,7 @@ const MyCart = () => {
   let prodects;
 
   //let myCart = [];
-  useEffect(() => {
+    useEffect(() => {
     async function fetchData() {
       const data = await getCartInfo(user);
       console.log("====>data:", data);
@@ -75,6 +75,7 @@ const MyCart = () => {
                     {/* {card} */}
                     {items.map((product) => (
                       <CartItemCard
+                        _id={product._id}
                         key={product.productId}
                         id={product.productId}
                         name={product.name}
