@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route,Navigate } from 'react-router-dom';
+import { useAuthContext } from './hooks/useAuthContext';
 import './App.css';
 import Home from './pages/Home'
 import Signup from './pages/Signup';
@@ -18,20 +19,25 @@ import DrinkSetDetails from './pages/DrinkSetDetails';
 import { ShopContextProvider } from "./context/shop-context";
 import ReviewDashboard from './CRUD/Reviews/ReviewDashboard';
 import UserReviews from "./components/UserReviews/UserReviews"
+import Admin from './pages/Admin';
+
 function App() {
+  const { user } = useAuthContext();
   return (
     <>
    
      <BrowserRouter>
      <ShopContextProvider>
       <Routes>
-        <Route path="/signup" element={<Signup/>} />
-        <Route path="/login" element={<Login/>} />
         <Route path="/" element={<Home/>} />
+        <Route path="/signup" element={!user ? <Signup/> : <Navigate to="/"/>} />
+        <Route path="/login" element={!user ? <Login/> : <Navigate to="/"/>} />
+       
 
         <Route path="/tableware" element={<ProductCategory/>} />
         <Route path="/about" element={<About />} />
-        <Route path="/ProductDetails/:id" element={<ProductDetails />} />
+        {/* <Route path="/ProductDetails/:id" element={<ProductDetails />} /> */}
+        <Route path="/ProductDetails" element={<ProductDetails />} />
         <Route path="/*" element={<NotFoundPage />} />
 
         <Route path="/drinkset" element={<DrinkSetMain/>}/>
@@ -47,6 +53,8 @@ function App() {
 
         <Route path="/CURD/reviews" element={<ReviewDashboard  />} />
         <Route path="/userReviews" element={<UserReviews  />} />
+        
+        <Route path="/adminportal" element={user && <Admin />} />
       </Routes>
       </ShopContextProvider>
      </BrowserRouter>

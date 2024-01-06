@@ -3,15 +3,14 @@ import { Link } from 'react-router-dom';
 
 import { useLogin } from '../hooks/useLogin';
 
-import google from '../assets/google.png';
+// import google from '../assets/google.png';
 import GoogleLogin from '../components/GoogleLogin';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import env from "react-dotenv";
 
 const Login = () => {
   const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
-  const { login,  error, isLoading } = useLogin();
+  const { login, error, isLoading } = useLogin();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -67,10 +66,11 @@ const Login = () => {
 
           </div>
           {/* <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}><img style={{ width:'20px', marginRight:'5px'}} src={google} alt="google" /><Link>Sign in with Google</Link></div> */}
-          <GoogleOAuthProvider clientId={env.GOOGLE_CLIENT_ID}>
+
+          <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
             <GoogleLogin googleUserData={googleUserData}/>
           </GoogleOAuthProvider>
-          <div>Don't have an account? <Link to="/signup"> <span style={{ marginLeft: '10px', color: 'var(--light-blue)' }}>Create Account</span></Link></div>
+          <div>Don't have an account? <Link to="/signup"> <span style={{ marginLeft: '10px', fontSize:'0.75rem', color: 'var(--light-blue)' }}>Create Account</span></Link></div>
         </div>
 
       </div>
