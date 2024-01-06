@@ -27,6 +27,7 @@ export const useLogin =() =>{
        }
        if(response.ok){
         //save the user to local storage
+        // console.log("====> useLogin, json:",json);
         localStorage.setItem('user', JSON.stringify(json));
         dispatch({type: 'LOGIN', payload: json})
         
