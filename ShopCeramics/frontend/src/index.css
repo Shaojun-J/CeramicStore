@@ -53,8 +53,11 @@ body {
   background: var(--beige-light);
   font-family: var(--font-base);
 }
-
-a {
+li{
+  list-style: none;
+  text-decoration: none;
+}
+a{
   text-decoration: none;
 }
 
@@ -1523,7 +1526,6 @@ input {
 
 /***   MyAccount Page  ***/
 
-
 .page-container {
 
   background: var(--white-color);
@@ -1531,8 +1533,9 @@ input {
 
   .page-content {
     width: 80%;
-    height: 600px;
+   min-height: 100vh;
     margin: 20px auto;
+ 
   }
 
   h2 {
@@ -1545,4 +1548,30 @@ input {
     text-indent: 12%;
 
   }
+}
+/***   Admin Page  ***/
+
+.admin-page{
+  min-height: 100vh;
+}
+.admin-dashboiard {
+  width: 100%;
+  height: auto;
+
+}
+.task-panel{
+  width:80%;
+  margin: 10px auto;
+}
+.task-panel ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.task-panel ul li:hover{
+  cursor: pointer;
+  color: var(--dark-blue);
+  transform: translateY(-5px);
+  transition: ease-in-out 0.5s;
 }

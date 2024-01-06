@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { useLogin } from '../hooks/useLogin';
 
-import google from '../assets/google.png';
+// import google from '../assets/google.png';
 import GoogleLogin from '../components/GoogleLogin';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
@@ -70,7 +70,7 @@ const Login = () => {
           <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
             <GoogleLogin googleUserData={googleUserData}/>
           </GoogleOAuthProvider>
-          <div>Don't have an account? <Link to="/signup"> <span style={{ marginLeft: '10px', color: 'var(--light-blue)' }}>Create Account</span></Link></div>
+          <div>Don't have an account? <Link to="/signup"> <span style={{ marginLeft: '10px', fontSize:'0.75rem', color: 'var(--light-blue)' }}>Create Account</span></Link></div>
         </div>
 
       </div>
