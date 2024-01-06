@@ -8,11 +8,11 @@ const getProducts = async (req, res) => {
 
 //get a single product
 const getProduct = async (req, res) => {
-    // const productId = req.params.id;
-    const productId =  req.query.id;
+    const productId = req.params.id;
+    // const productId =  req.query.id;
     console.log("getProduct by Id:", productId);
   try{
-    const product = await Product.findOne({_id: productId});
+    const product = await Product.findOne({id: productId});
 
     if(!product){
       return res.status(404).json({message: 'Product not found'});

@@ -119,6 +119,7 @@ const Productboard = ({data}) => {
         setFindError('');
         try {
             const response = await fetch(`/products/${productId}`, {
+              
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
