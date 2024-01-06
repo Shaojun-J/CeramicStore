@@ -52,8 +52,10 @@ router.post('/', async (req, res) => {
         const session = await stripe.checkout.sessions.create({
             //  success_url: 'http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}',
             //  cancel_url: 'http://localhost:3000/cancel',
-            success_url: `${process.env.CLIENT_URL}/success.html`,
-            cancel_url: `${process.env.CLIENT_URL}/cancel.html`,
+            success_url: `${process.env.CLIENT_URL}/orderconfirmation?sta=success`,
+            cancel_url: `${process.env.CLIENT_URL}/orderconfirmation?stacancel`,
+            //success_url: `http://localhost:4000/checkout/result?sta=success`,
+            //cancel_url: `http://localhost:4000/checkout/result?stacancel`,
             payment_method_types: ['card'],
             mode: 'payment',
             line_items: items
@@ -65,6 +67,18 @@ router.post('/', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
     // res.json({url: "session.url"});
+});
+
+router.get('/result', async (req, res) => {
+    const sta = req.query.sta;
+    console.log("payment sta:", sta);
+
+    //TODO:create order
+    //router.post('/', createOrder);
+
+    // jump to client page
+    res.redirect(`${process.env.CLIENT_URL}/orderconfirmation?sta=${sta}`);
+
 });
 
 module.exports = router;

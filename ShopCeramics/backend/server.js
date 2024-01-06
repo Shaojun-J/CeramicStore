@@ -27,7 +27,7 @@ app.use('/account', userRoutes);
 app.use('/orders', orderRoutes);
 app.use('/products', productRoutes);
 app.use('/shoppingcart', shoppingCartRoutes);
-app.use('/ckeckout', CheckoutRoute);
+app.use('/checkout', CheckoutRoute);
 app.use("/reviews", reviewRoutes);
 
 app.get('/', (req, res) => {
