@@ -19,7 +19,7 @@ const ReviewDashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await  axios
-      .get("http://localhost:4000/reviews")
+      .get(`${process.env.REACT_APP_SERVER_URL}/reviews`)
       .then((data) => {
         if (Array.isArray(data.data.data)) {
           setReviews(data.data.data);
@@ -38,7 +38,7 @@ useEffect(() => {
     ];
     setproductList(uniqueProductIds);
     console.log(productList);
-  }, [productList, reviews]);
+  }, [reviews]);
 
   const handleChange = (e) => {
     setInput(e.target.value);

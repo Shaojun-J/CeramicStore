@@ -25,7 +25,7 @@ const ReviewDashboard = () => {
     console.log("User:", user);
     const fetchData = async () => {
       await axios
-        .get(`http://localhost:4000/reviews/username/${userName}`)
+        .get(`${process.env.REACT_APP_SERVER_URL}/reviews/username/${userName}`)
         .then((data) => {
           if (Array.isArray(data.data.data)) {
             setReviews(data.data.data);
