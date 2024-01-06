@@ -118,7 +118,7 @@ const Productboard = ({data}) => {
         e.preventDefault();
         setFindError('');
         try {
-            const response = await fetch(`/products/${productId}`, {
+            const response = await fetch(`/products?id=${productId}&t=${new Date().getTime()}`, {
               
               method: 'GET',
               headers: {
@@ -126,6 +126,7 @@ const Productboard = ({data}) => {
                 Authorization: `Bearer ${user.token}`,
               },
             });
+          
             if(!response.ok){
                 if(response.status === 404){
                     setFindError('Product not found');
@@ -135,13 +136,20 @@ const Productboard = ({data}) => {
                 }
                return;
             }
-            const foundProduct = await response.json();
-            setCategory(foundProduct.category);
-            setProductName(foundProduct.name);
-            setProductPrice(foundProduct.price);
-            setDescription(foundProduct.description);
-            setImageURL(foundProduct.imageURL);
-            setQuantity(foundProduct.quantity);
+            const backProducts = await response.json();
+            console.log(typeof productId);
+            const foundProduct = backProducts.find(product => product.id === Number(productId))//because the backend returns an array of a product
+            console.log(foundProduct);
+            if(foundProduct){
+                setCategory(foundProduct.category);
+                setProductName(foundProduct.name);
+                setProductPrice(foundProduct.price);
+                setDescription(foundProduct.description);
+                setImageURL(foundProduct.imageURL);
+                setQuantity(foundProduct.quantity);
+            }
+      
+           
  
         }  catch (error) {
             console.error('Error finding product:', error);

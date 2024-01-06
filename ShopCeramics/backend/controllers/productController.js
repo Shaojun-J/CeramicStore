@@ -8,8 +8,8 @@ const getProducts = async (req, res) => {
 
 //get a single product
 const getProduct = async (req, res) => {
-    const productId = req.params.id;
-    // const productId =  req.query.id;
+    // const productId = req.params.id;
+    const productId =  req.query.id;
     console.log("getProduct by Id:", productId);
   try{
     const product = await Product.findOne({id: productId});

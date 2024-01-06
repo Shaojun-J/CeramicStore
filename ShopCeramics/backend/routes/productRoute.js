@@ -11,7 +11,6 @@ const {getProducts,
 
 router.get('/', getProducts);
 // router.get(':id', getProduct);
-router.get('/:id', getProduct);
 router.get('/byId', getProduct);
 router.get('/byType', getProductByType);
 router.post('/', createProduct);
