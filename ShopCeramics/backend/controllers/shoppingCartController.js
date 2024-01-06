@@ -4,11 +4,14 @@ const Product = require('../models/productModel');
 //get a user's shopping cart
 const getShoppingCart = async (req, res) =>{
     const userId = req.user;
+    console.log("==> shoppingCartController.js: getShoppingCart");
+    console.log("req.user:",req.user);
     try{
         const user = await User.findById(userId);
         if(!user){
             return res.status(404).json({message: 'User not found'});
         }
+        console.log("==>OK : getShoppingCart user.shoppingCart:",user.shoppingCart);
         res.status(200).json(user.shoppingCart);
     }catch(err){
         res.status(500).json({message: err.message});

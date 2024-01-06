@@ -7,8 +7,9 @@ import { useAuthContext } from "../hooks/useAuthContext";
 
 const ProductCard = (props) => {
   const { addToCart, cartItems } = useContext(ShopContext);
-  const cartItemCount = cartItems[props.id];
   const { user } = useAuthContext();
+  const cartItemCount = cartItems[props.id];
+  
 
   // console.log("-->data:", props.data);
   

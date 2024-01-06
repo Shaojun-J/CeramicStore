@@ -27,6 +27,23 @@ const getProduct = async (req, res) => {
   }
 }
 
+const getProductByMongoId = async (req, res) => {
+  // const productId = req.params.id;
+  const productId =  req.query.id;
+  console.log("getProduct by Id:", productId);
+try{
+  const product = await Product.findOne({_id: productId});
+
+  if(!product){
+    res.status(404).json({message: 'Product not found'});
+  }
+  res.status(200).json(product);
+
+}catch(err){
+  res.status(500).json({message: err.message});
+}
+}
+
 const getProductByType = async (req, res) => {
     const productType = req.query.type;
     console.log("-->getProductByType:", productType);
@@ -94,5 +111,6 @@ module.exports = {
     createProduct,
     deleteProduct,
     updateProduct,
-    getProductByType
+    getProductByType,
+    getProductByMongoId
 }

@@ -6,17 +6,76 @@ export const ShopContext = createContext(null);
 // const { user } = useAuthContext();
 
 
+
 const getDefaultCart = () => {
+
   let cart = {};
   for (let i = 1; i < PRODUCTS.products.length + 1; i++) {
     cart[i] = 0;
 
   }
   return cart;
+
+  // let cart = {number:0};
+  // return cart;
 };
 
 export const ShopContextProvider = (props) => {
+
   const [cartItems, setCartItems] = useState(getDefaultCart());
+  const [needUpdate, setNeedUpdate] = useState(0);
+
+  const cartNeedUpdate = () => {
+    return needUpdate;
+  };
+
+
+  const getCart = async (user) => {
+
+    if (!user) {
+      console.log("getCart, user is null: ", user);
+      return [];
+    }
+
+    console.log("getCart, user token:", user.token);
+
+    const res = await fetch('http://localhost:4000/shoppingcart', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${user.token}`,
+      },
+    });
+    const cart = await res.json();
+    console.log("==>cartItems:", cartItems);
+    return cart;
+  };
+
+  const getCartInfo = async (user) => {
+    const cart = await getCart(user);
+    let cartInfo = [];
+    for (const item in cart) {
+      const res = await fetch(`http://localhost:4000/products/byMongoId?id=${cart[item].productId}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const product = await res.json();
+      console.log("==>getCartInfo: quantity:", cart[item].productQuantity);
+      console.log("==>getCartInfo: imageURL:", product.imageURL[0]);
+      cartInfo.push({
+        productId: product.id,
+        name: product.name,
+        price: product.price,
+        imageURL: product.imageURL[0],
+        quantity: cart[item].productQuantity,
+      });
+    }
+    console.log("==>getCartInfo:", cartInfo);
+    return cartInfo;
+  }
 
   const getTotalCartAmount = () => {
     let totalAmount = 0;
@@ -30,16 +89,44 @@ export const ShopContextProvider = (props) => {
     }
     return totalAmount;
   };
-  const getTotalCartItems = () => {
-    let totalItems = 0;
-    for (const item in cartItems) {
-      if (cartItems[item] > 0) {
-        totalItems += cartItems[item];
-      }
+
+  const getTotalCartItems = async (user) => {
+    // let totalItems = 0;
+    // for (const item in cartItems) {
+    //   if (cartItems[item] > 0) {
+    //     totalItems += cartItems[item];
+    //   }
+    // }
+    // return totalItems;
+
+
+    if (!user) {
+      console.log("getTotalCartItems, user is null");
+      return 0;
     }
-    return totalItems;
+    let totalAmount = 0;
+    console.log("getTotalCartItems, user token:", user.token);
+    const res = await fetch('http://localhost:4000/shoppingcart', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${user.token}`,
+      },
+    });
+    const cartItems = await res.json();
+    console.log("==>cartItems:", cartItems);
+    for (const item in cartItems) {
+      totalAmount += cartItems[item].productQuantity;
+    }
+    console.log("==>totalAmount:", totalAmount);
+    return totalAmount;
+
+
   };
+
   const addToCart = async (itemId, user) => {
+    // setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
+
     console.log("addToCart, userid:", user, itemId);
     // setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     //fetch('/shoppingcart',
@@ -61,6 +148,7 @@ export const ShopContextProvider = (props) => {
         if (res.ok) {
           //return res.json();  
           console.log("added to cart");
+          setNeedUpdate(needUpdate + 1);
         }
         else {
           console.log("not added to cart");
@@ -75,7 +163,7 @@ export const ShopContextProvider = (props) => {
   };
 
   const updateCartItemCount = (newAmount, itemId) => {
-    setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
+    // setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
   };
 
   const checkout = async (user) => {
@@ -88,7 +176,9 @@ export const ShopContextProvider = (props) => {
     // }
     // console.log("checkout, userid:",userid);
 
-    fetch('http://localhost:4000/ckeckout',
+    console.log(" ----> checkout, userid:", user);
+
+    fetch('http://localhost:4000/checkout',
       {
         method: 'POST',
         headers: {
@@ -97,7 +187,7 @@ export const ShopContextProvider = (props) => {
         },
         body: JSON.stringify({
           //TODO: get the items from the cart
-          // userid: userid,
+          userid: user.userid,
           items: [
             { id: 1, quantity: 3 },
             { id: 2, quantity: 1 },
@@ -123,6 +213,9 @@ export const ShopContextProvider = (props) => {
     getTotalCartAmount,
     getTotalCartItems,
     checkout,
+    cartNeedUpdate,
+    getCart,
+    getCartInfo,
   };
 
   return (

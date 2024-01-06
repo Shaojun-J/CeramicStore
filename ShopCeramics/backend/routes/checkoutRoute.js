@@ -19,10 +19,6 @@ const storeItems = new Map([
 
 
 router.post('/', async (req, res) => {
-    console.log("==> checkoutRoute.js: router.post('/");
-    // console.log("STRIPE_SECRET_KEY:",process.env.STRIPE_SECRET_KEY);
-    // console.log("req.body:",req.body);
-    console.log("req.body.userid:", req.body.userid);
     const userId = req.body.userid;
     let items = [];
     try {
@@ -30,29 +26,27 @@ router.post('/', async (req, res) => {
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
-        const cart =  user.shoppingCart;
+        const cart = user.shoppingCart;
         console.log("cart:", cart);
         for (let i = 0; i < cart.length; i++) {
             const item = cart[i];
             const product = await Product.findById(item.productId);
-            //items.set(item.productId, item.productQuantity);
-            items.push({ 
-                    price_data: {
-                        currency: 'usd',
-                        product_data: {
-                            name: product.name
-                        },
-                        unit_amount: parseInt(product.price*100)
+            items.push({
+                price_data: {
+                    currency: 'usd',
+                    product_data: {
+                        name: product.name
                     },
-                    quantity: item.quantity
-             });
+                    unit_amount: parseInt(product.price * 100)
+                },
+                quantity: item.productQuantity
+            });
         }
-        
+
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
 
-    // let cart = getShoppingCart(req, res);
     try {
         console.log("items:", items);
         const session = await stripe.checkout.sessions.create({
@@ -62,19 +56,6 @@ router.post('/', async (req, res) => {
             cancel_url: `${process.env.CLIENT_URL}/cancel.html`,
             payment_method_types: ['card'],
             mode: 'payment',
-            // line_items: req.body.items.map(item => {
-            //     const storeItem = storeItems.get(item.id);
-            //     return {
-            //         price_data: {
-            //             currency: 'usd',
-            //             product_data: {
-            //                 name: storeItem.name
-            //             },
-            //             unit_amount: storeItem.priceInCents
-            //         },
-            //         quantity: item.quantity
-            //     }
-            // })
             line_items: items
         });
         console.log(session);
