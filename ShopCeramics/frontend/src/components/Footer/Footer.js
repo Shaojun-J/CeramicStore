@@ -19,8 +19,9 @@ const Footer = () => {
      <div className="footer-bottom">
         <div className="footer-links">
                 <div className="footer-link-group">
-                    <div className="link-items-title"><h4>CUSTOMER SERVICE</h4></div>
+                   
                     <div className="link-items">
+                    <div className="link-items-title"><h4>CUSTOMER SERVICE</h4></div>
                         <ul>
                             <li>Instructions</li>
                             <li>
@@ -35,8 +36,9 @@ const Footer = () => {
                 </div>
 
                 <div className="footer-link-group">
-                    <div className="link-items-title"><h4>COMPANY</h4></div>
+                   
                     <div className="link-items">
+                    <div className="link-items-title"><h4>COMPANY</h4></div>
                         <ul>
                             <li>                            
                             <a href="/termsconditions"> Terms & Conditions</a>
