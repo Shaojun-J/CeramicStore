@@ -78,7 +78,7 @@ const SearchReviews = (props) => {
   const UpdateReview = async (formdata, id) => {
     try {
       const response = await axios.put(
-        `http://localhost:4000/reviews/update/${id}`,
+        `${process.env.REACT_APP_SERVER_URL}/reviews/update/${id}`,
         formdata
       );
 
@@ -93,7 +93,7 @@ const SearchReviews = (props) => {
   const deleteReview = async (id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:4000/reviews/delete/${id}`
+        `${process.env.REACT_APP_SERVER_URL}/reviews/delete/${id}`
       );
       console.log(response);
 

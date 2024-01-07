@@ -8,6 +8,8 @@ const userRoutes = require('./routes/userRoute');
 const orderRoutes = require('./routes/orderRoute');
 const productRoutes = require('./routes/productRoute');
 const shoppingCartRoutes = require('./routes/shoppingCartRoute');
+const cors = require('cors');
+// const Review = require('./models/ReviewModel');
 const CheckoutRoute = require('./routes/checkoutRoute');
 const reviewRoutes = require("./routes/reviewRoute");
 
@@ -26,26 +28,26 @@ app.use((req, res, next) => {
 });
 
 //routes
-app.use('/account', userRoutes);
-app.use('/orders', orderRoutes);
-app.use('/products', productRoutes);
-app.use('/shoppingcart', shoppingCartRoutes);
-app.use('/checkout', CheckoutRoute);
-app.use("/reviews", reviewRoutes);
+app.use('/api/account', userRoutes);
+app.use('/api/orders', orderRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/shoppingcart', shoppingCartRoutes);
+app.use('/api/checkout', CheckoutRoute);
+app.use("/api/reviews", reviewRoutes);
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     res.json({ message: 'welcome to my shop' });
 })
 
 // get reviews data from db
-app.get('/reviews', (req, res) => {
-    Review
-        .find()
-        .then((reviews) => {
-            res.json(reviews);
-        })
-        .catch((err) => res.json(err))
-})
+// app.get('/reviews', (req, res) => {
+//     Review
+//         .find()
+//         .then((reviews) => {
+//             res.json(reviews);
+//         })
+//         .catch((err) => res.json(err))
+// })
 
 
 

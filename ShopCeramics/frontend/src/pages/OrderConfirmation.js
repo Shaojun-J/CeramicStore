@@ -47,7 +47,7 @@ const OrderConfirmation = (props) => {
     useEffect(() => {
 
         async function fetchData() {
-            if (flag) {
+            if (flag && user) {
                 let cartInfo = await getCartInfo(user);
                 console.log("->OrderConfirmation: cartInfo:", cartInfo);
                 let items = [];
@@ -60,7 +60,7 @@ const OrderConfirmation = (props) => {
                 }
                 console.log("->OrderConfirmation: items:", items.length);
                 if (items.length > 0) {
-                    let res = await fetch('http://localhost:4000/orders', {
+                    let res = await fetch(`${process.env.REACT_APP_SERVER_URL}/orders`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ const OrderConfirmation = (props) => {
                 }
 
                 //TOD: clear the cart
-                let res = await fetch('http://localhost:4000/shoppingcart', {
+                let res = await fetch(`${process.env.REACT_APP_SERVER_URL}/shoppingcart`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',

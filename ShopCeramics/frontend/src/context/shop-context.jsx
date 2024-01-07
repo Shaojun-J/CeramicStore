@@ -38,7 +38,7 @@ export const ShopContextProvider = (props) => {
     }
 
     
-    const res = await fetch('http://localhost:4000/shoppingcart', {
+    const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/shoppingcart`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ export const ShopContextProvider = (props) => {
     const cart = await getCart(user);
     let cartInfo = [];
     for (const item in cart) {
-      const res = await fetch(`http://localhost:4000/products/byMongoId?id=${cart[item].productId}`, {
+      const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/products/byMongoId?id=${cart[item].productId}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -120,7 +120,7 @@ export const ShopContextProvider = (props) => {
     }
     let totalAmount = 0;
     // console.log("getTotalCartItems, user token:", user.token);
-    const res = await fetch('http://localhost:4000/shoppingcart', {
+    const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/shoppingcart`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -147,7 +147,7 @@ export const ShopContextProvider = (props) => {
     // console.log("addToCart, userid:", user, itemId);
     // setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     //fetch('/shoppingcart',
-    fetch('http://localhost:4000/shoppingcart',
+    fetch(`${process.env.REACT_APP_SERVER_URL}/shoppingcart`,
       {
         method: 'POST',
         headers: {
@@ -180,7 +180,7 @@ export const ShopContextProvider = (props) => {
 
 
     // console.log("removeFromCart, userid:", user, itemId);
-    fetch('http://localhost:4000/shoppingcart', {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/shoppingcart`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -222,7 +222,7 @@ export const ShopContextProvider = (props) => {
 
     // console.log(" ----> checkout, userid:", user);
 
-    fetch('http://localhost:4000/checkout',
+    fetch(`${process.env.REACT_APP_SERVER_URL}/checkout`,
       {
         method: 'POST',
         headers: {

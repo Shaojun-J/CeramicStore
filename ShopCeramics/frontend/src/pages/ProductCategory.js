@@ -21,7 +21,7 @@ const ProductCategory = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch(`http://localhost:4000/products/byType?type=${type}`,
+        const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/products/byType?type=${type}`,
           {
             method: 'GET',
             headers: {

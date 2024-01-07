@@ -81,7 +81,7 @@ const Productboard = ({data}) => {
         };
 
         try {
-            const response = await fetch('/products', {
+            const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/products`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -166,7 +166,7 @@ const Productboard = ({data}) => {
         };
 
         try {
-            const response = await fetch(`/products/${productId}`, {
+            const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/products/${productId}`, {
               method: 'PATCH',
               headers: {
                 'Content-Type': 'application/json',
@@ -197,7 +197,7 @@ const Productboard = ({data}) => {
     const handleDeleteSubmit = async(e) => {
         e.preventDefault();
         try{
-            const response = await fetch(`/products/${productId}`, {
+            const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/products/${productId}`, {
                 method: 'DELETE',
                 headers:{
                     'Content-Type': "application/json",
