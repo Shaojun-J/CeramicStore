@@ -12,8 +12,6 @@ const MyCart = () => {
   const { user } = useAuthContext();
 
   const {checkout, getCartInfo } = useContext(ShopContext);
-
-  // const totalAmount = getTotalCartAmount();
   const [totalAmount, setTotalAmount] = useState(0);
 
   const navigate = useNavigate();

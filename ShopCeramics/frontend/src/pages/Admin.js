@@ -25,7 +25,7 @@ export default function Admin() {
     
     const fetchUsers = async () =>{
       try{
-        const response = await fetch('/account',{
+        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/account`,{
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ export default function Admin() {
 
     const fetchProducts = async () =>{
       try{
-        const response = await fetch('/products',{
+        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/products`,{
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ export default function Admin() {
 
     const fetchOrders = async () =>{
       try{
-        const response = await fetch('/orders',{
+        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/orders`,{
           method: 'GET',
           headers:{
             'Conten-Type': "application/json",

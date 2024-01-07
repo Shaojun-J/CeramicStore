@@ -68,7 +68,7 @@ const CreateReviews = (props) => {
   const addReview = async (formdata) => {
     try {
       const response = await axios.post(
-        "http://localhost:4000/reviews/create",
+        `${process.env.REACT_APP_SERVER_URL}/reviews/create`,
         formdata
       );
       console.log("Review created:", response.data);
