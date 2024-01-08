@@ -115,7 +115,7 @@ const Productboard = ({data}) => {
         setFindError('');
         try {
             // const response = await fetch(`/products?id=${productId}&t=${new Date().getTime()}`
-            const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/products/byId?id=${productId}&t=${new Date().getTime()}`, {
+            const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/products/byId?id=${productId}`, {
               
               method: 'GET',
               headers: {
