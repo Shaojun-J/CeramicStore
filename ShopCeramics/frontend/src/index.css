@@ -1585,7 +1585,7 @@ input {
 
   .page-content {
     width: 80%;
-    min-height: 100vh;
+    min-height: 90vh;
     margin: 20px auto;
 
   }
