@@ -44,7 +44,7 @@ const ReviewDashboard = () => {
     ];
     setproductList(uniqueProductIds);
     console.log(productList);
-  }, [productList, reviews]);
+  }, [reviews]);
 
   console.log(productList);
 
