@@ -70,8 +70,11 @@
     padding: 15px;
 }
  
-    .footer-links{
+    .footer-links {
         display: flex;
+    }
+
+    .footer-links > div {
         width:90%;
         margin: 10px 150px;
         flex-direction: row;
@@ -81,7 +84,7 @@
 
     .footer-link-group{
         width: 200px;
-        display:flex;
+        /* display:flex; */
         margin: 25px 50px ;
     }
     .link-items{
