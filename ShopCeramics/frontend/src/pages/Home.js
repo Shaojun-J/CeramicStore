@@ -64,7 +64,7 @@ export default function Home () {
 
            <div className="product-category" >
             {/* <Link to="/homedecor" className="subCategory"> */}
-            <Link to={{ pathname: '/tableware', search: `?type=Tableware` }}  className="subCategory">
+            <Link to={{ pathname: '/tableware', search: `?type=Decor` }}  className="subCategory">
                <div className='categoryIcon'>
                   <img src={HomeDecor} alt="" style={{width:'50px'}} />
                   <h4 style={{fontFamily: `var(--font-base)`, fontWeight:'normal', color:'#c40202'}}>HOME DÉCOR </h4>
