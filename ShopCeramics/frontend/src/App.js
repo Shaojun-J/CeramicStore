@@ -17,7 +17,6 @@ import ContactUs from './pages/ContactUs';
 import OrderConfirmation from './pages/OrderConfirmation'; 
 import DrinkSetDetails from './pages/DrinkSetDetails';
 import { ShopContextProvider } from "./context/shop-context";
-import ReviewDashboard from './CRUD/Reviews/ReviewDashboard';
 import UserReviews from "./components/UserReviews/UserReviews"
 import Admin from './pages/Admin';
 
