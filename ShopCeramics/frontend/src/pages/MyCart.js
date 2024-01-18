@@ -11,7 +11,7 @@ import { CartItemCard } from "../components/CartItemCard/CartItemCard";
 const MyCart = () => {
   const { user } = useAuthContext();
 
-  const {checkout, getCartInfo, getTotalCartAmount } = useContext(ShopContext);
+  const {checkout, getCartInfo, getTotalCartAmount,cartNeedUpdate } = useContext(ShopContext);
   const [totalAmount, setTotalAmount] = useState(0);
 
   const navigate = useNavigate();
@@ -21,8 +21,8 @@ const MyCart = () => {
   const [myCart, setMyCart] = useState([]);
   const [items, setItems] = useState([]);
 
-  let prodects;
 
+  let needUpdate = cartNeedUpdate();
   //let myCart = [];
     useEffect(() => {
     async function fetchData() {
@@ -34,7 +34,7 @@ const MyCart = () => {
       setTotalAmount(totalAmount);
     }
     fetchData();
-  }, []);
+  }, [needUpdate]);
 
   //const card = myCart.map((product) => (
   //     <CartItemCard
