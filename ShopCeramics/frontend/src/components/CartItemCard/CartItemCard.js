@@ -1,4 +1,4 @@
-import React, { useContext,useState,useEffect } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { ShopContext } from "../../context/shop-context";
 import './cartItemCard.css'
 import { useAuthContext } from "../../hooks/useAuthContext";
@@ -6,17 +6,16 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 export const CartItemCard = (props) => {
   const { user } = useAuthContext();
 
-  const { addToCart, removeFromCart, updateCartItemCount,cartNeedUpdate } = useContext(ShopContext);
+  const { addToCart, removeFromCart, updateCartItemCount, cartNeedUpdate, getItemCount } = useContext(ShopContext);
   const [itmeNumeber, setItmeNumeber] = useState(props.quantity);
 
   let needUpdate = cartNeedUpdate();
   useEffect(() => {
-    async function fetchData() {
-        // setTotalitems(await getTotalCartItems(user));
-        setItmeNumeber(props.quantity);
+    async function fetchData() {     
+      setItmeNumeber(await getItemCount(props._id, user));
     }
     fetchData();
-}, [itmeNumeber,needUpdate]);
+  }, [itmeNumeber, needUpdate]);
 
   return (
     <div className="cartItem">
