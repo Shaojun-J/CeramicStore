@@ -15,7 +15,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        cache-dependency-path: api/package-lock.json  
+        cache-dependency-path: backend/package-lock.json  
     
    # Setup for api
     - name: Set up Node.js for API
@@ -23,7 +23,7 @@ jobs:
       with:
         node-version: '18' # specify the Node.js version for API
         cache: 'npm'
-        cache-dependency-path: api/package-lock.json
+        cache-dependency-path: backend/package-lock.json
 
     - name: Create .env file for API
       run: |
