@@ -1,0 +1,54 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "main" ]
+ 
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: api/package-lock.json  
+    
+   # Setup for api
+    - name: Set up Node.js for API
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18' # specify the Node.js version for API
+        cache: 'npm'
+        cache-dependency-path: api/package-lock.json
+
+    - name: Create .env file for API
+      run: |
+        echo "PORT=${{ secrets.PORT }}" > backend/.env
+        echo "MONGO_URI=${{ secrets.MONGO_URI }}" >> backend/.env
+        echo "SECRET=${{ secrets.SECRET }}" >> backend/.env
+        echo "STRIPE_SECRET_KEY=${{ secrets.STRIPE_SECRET_KEY}}" >> backend/.env
+        echo "CLIENT_URL=${{ secrets.CLIENT_URL }}" >> backend/.env
+      shell: bash
+
+    - name: Install API dependencies and start server
+      run: |
+        cd backend
+        npm install
+        pm2 restart apiServer || pm2 start app.js --name=apiServer
+     
+
+        
+    #- name: Install Sanity dependencies
+    #  run: |
+    #    cd backend_sanity
+     #   npm install
+ 
+    #- run: npm run build --if-present
+   # - run: |
+    #   cd api
+     #  pm2 start app.js --name=apiServer
+    # run: pm2 restart apiServer
