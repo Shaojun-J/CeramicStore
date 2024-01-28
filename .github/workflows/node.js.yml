@@ -15,7 +15,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        cache-dependency-path: backend/package-lock.json  
+        cache-dependency-path: ShopCeramics/backend/package-lock.json  
     
    # Setup for api
     - name: Set up Node.js for API
@@ -23,15 +23,15 @@ jobs:
       with:
         node-version: '18' # specify the Node.js version for API
         cache: 'npm'
-        cache-dependency-path: backend/package-lock.json
+        cache-dependency-path: ShopCeramics/backend/package-lock.json
 
     - name: Create .env file for API
       run: |
-        echo "PORT=${{ secrets.PORT }}" > backend/.env
-        echo "MONGO_URI=${{ secrets.MONGO_URI }}" >> backend/.env
-        echo "SECRET=${{ secrets.SECRET }}" >> backend/.env
-        echo "STRIPE_SECRET_KEY=${{ secrets.STRIPE_SECRET_KEY}}" >> backend/.env
-        echo "CLIENT_URL=${{ secrets.CLIENT_URL }}" >> backend/.env
+        echo "PORT=${{ secrets.PORT }}" > ShopCeramics/backend/.env
+        echo "MONGO_URI=${{ secrets.MONGO_URI }}" >> ShopCeramics/backend/.env
+        echo "SECRET=${{ secrets.SECRET }}" >> ShopCeramics/backend/.env
+        echo "STRIPE_SECRET_KEY=${{ secrets.STRIPE_SECRET_KEY}}" >> ShopCeramics/backend/.env
+        echo "CLIENT_URL=${{ secrets.CLIENT_URL }}" >> ShopCeramics/backend/.env
       shell: bash
 
     - name: Install API dependencies and start server
