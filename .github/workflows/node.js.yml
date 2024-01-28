@@ -36,7 +36,7 @@ jobs:
 
     - name: Install API dependencies and start server
       run: |
-        cd backend
+        cd ShopCeramics/backend
         npm install
         pm2 restart apiServer || pm2 start app.js --name=apiServer
      
