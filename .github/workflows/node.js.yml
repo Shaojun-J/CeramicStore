@@ -38,7 +38,7 @@ jobs:
       run: |
         cd ShopCeramics/backend
         npm install
-        pm2 restart apiServer || pm2 start app.js --name=apiServer
+        pm2 restart apiServer || pm2 start server.js --name=apiServer
      
 
         
