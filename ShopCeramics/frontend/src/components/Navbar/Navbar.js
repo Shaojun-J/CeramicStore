@@ -4,6 +4,7 @@ import { useState, useContext,useEffect  } from "react";
 import SideBar from "../SideBar";
 import { FaBars } from "react-icons/fa";
 import { IoIosClose } from "react-icons/io";
+import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { ShopContext } from "../../context/shop-context";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
@@ -86,7 +87,8 @@ const Navbar = () => {
               </div>
               <div>
                 <Link to="/mycart">
-                {t('cart')}
+                {/* {t('cart')} */}
+                <HiOutlineShoppingBag style={{width:'2.5em', height:'2.5em',color:'var(--light-grey)'}}/>
                   {totalitems !== 0 && (
                     <span className="cartCount ">{totalitems}</span>
                   )}{" "}
@@ -102,7 +104,8 @@ const Navbar = () => {
               </div>
               <div>
                 <Link to="/mycart" className="navbar-link">
-                {t('my_cart')}
+                {/* {t('my_cart')} */}
+                <HiOutlineShoppingBag style={{width:'2.5em', height:'2.5em', color:'var(--light-grey)', marginRight:'13px'}}/>
                   {totalitems !== 0 && (
                     <span className="cartCount">{totalitems}</span>
                   )}
@@ -116,8 +119,8 @@ const Navbar = () => {
 							value={localStorage.getItem("i18nextLng")}
 							onChange={handleLanguageChange}
 						>
-							<option value="en">English</option>
-							<option value="fr">Français</option>
+							<option value="en">En</option>
+							<option value="fr">Fr</option>
 						</select>
           </div>
         </nav>
