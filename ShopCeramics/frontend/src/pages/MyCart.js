@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 import Promo from "../components/Promo/Promo";
 import Footer from "../components/Footer/Footer";
 import { ShopContext } from "../context/shop-context";

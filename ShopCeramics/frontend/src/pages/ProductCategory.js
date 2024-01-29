@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Promo from "../components/Promo/Promo";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 import ProductCard from "../components/ProductCard"
 import { Link, useSearchParams  } from "react-router-dom";
 // import products from '../data/productsData.json'
